@@ -12,6 +12,8 @@
 
 저장소: <https://github.com/ssung123-del/oryun-sermon-archive>
 
+**운영 상태 (2026-10-25):** 사이트와 검증된 데이터 배포는 완료했습니다. GitHub 호스팅 runner에서는 공식 사이트의 robots.txt 연결이 시간 초과되어 자동 수집의 실환경 성공을 확인하지 못했습니다. Linux x64/ARM 및 macOS에서 DNS는 정상이나 TCP 연결이 성립하지 않았습니다. 정확한 원인은 확정할 수 없습니다. 매일 09:10 예약은 활성 상태이며, 연결 실패 시 기존 공개 데이터가 유지됩니다. 공식 사이트와 GitHub 사이의 연결 문제 해소가 완전 자동 운영의 남은 조건입니다.
+
 ## 파일
 
 | 파일 | 역할 |
@@ -135,6 +137,24 @@ UTC 환산 cron을 혼용하지 않습니다. 이 구성은 GitHub Actions가 �
 - **전체 재검사**: `full=true`. 새 설교가 없어도 최근 성공 시각은 갱신됩니다.
 - **수집 없는 재배포**: `deploy_only=true`. 정상 JSON 검증 후 현재 파일을 배포합니다. 복구 또는 화면 수정 시 사용합니다.
 - 기본 브랜치로 코드/데이터를 push해도 테스트·수집·배포가 실행됩니다. README만 수정하면 실행하지 않습니다.
+
+## 현재 GitHub runner 연결 문제와 운영 방법
+
+[실제 수집 실패 로그](https://github.com/ssung123-del/oryun-sermon-archive/actions/runs/40137328539)와 [표준 runner 3종 연결 진단](https://github.com/ssung123-del/oryun-sermon-archive/actions/runs/40137547170)을 확인했습니다. 로컬에서는 동일한 공식 HTTPS URL 수집이 정상이며, GitHub에서는 HTTP 응답 이전 연결 시간 초과가 발생합니다. IP 제한·방화벽·경로 문제 중 어떤 원인인지는 확정하지 않았습니다. 대체 주소·프록시·TLS 검증 해제로 우회하지 않습니다. 진단용 임시 워크플로 파일은 검사 후 제거했습니다.
+
+연결이 복구될 때까지는 로컬에서 다음과 같이 갱신하고, Actions에서 `deploy_only=true`로 배포할 수 있습니다.
+
+```sh
+source .venv/bin/activate
+python scraper.py
+python scraper.py --validate-only
+git add sermons.json
+git commit -m "data: update verified sermon metadata [skip ci]"
+git push
+gh workflow run update.yml -f deploy_only=true -f full=false
+```
+
+GitHub의 연결이 허용되는 환경이 확보되면 기본 예약 흐름 그대로 자동 운영됩니다. 별도 대안으로 운영자가 명시적으로 선택해 관리하는 self-hosted runner를 연결할 수 있으나, 컴퓨터 상시 실행과 저장소 보안 관리가 필요하므로 이 프로젝트에서는 설치하지 않았습니다. 원본 운영자에게 연락하거나 네트워크 정책을 변경하는 작업도 수행하지 않았습니다.
 
 ## 오류 확인과 복구
 

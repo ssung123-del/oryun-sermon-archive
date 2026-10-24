@@ -33,7 +33,7 @@ const artifacts=path.join(__dirname,'artifacts');fs.mkdirSync(artifacts,{recursi
    const initialTotal=await page.locator('#totalCount').textContent();const original=JSON.parse(fs.readFileSync(path.join(root,'sermons.json'),'utf8'));
    const first=original.sermons.find(r=>r.reference.status==='ok');const added={...first,id:`${first.menu}:999999999`,tid:'999999999',title:'자동 갱신 테스트',source_url:`https://oryun.org/tv/?menu=${first.menu}&mode=view&tid=999999999`};
    original.sermons.unshift(added);original.meta.total++;original.meta.content_version='poll-test';original.meta.last_success_at='2026-10-25T12:00:00Z';
-   await page.route('**/sermons.json?*',route=>route.fulfill({json:original}));await page.clock.runFor(300000);await page.waitForFunction(n=>document.querySelector('#totalCount').textContent!==n,initialTotal);
+   await page.route('**/sermons.json?*',route=>route.fulfill({json:original}));await page.evaluate(()=>Object.defineProperty(document,'hidden',{configurable:true,get:()=>true}));await page.clock.runFor(300000);await page.waitForFunction(n=>document.querySelector('#totalCount').textContent!==n,initialTotal);
    assert.ok((await page.locator('#pageLabel').textContent()).startsWith('2 /'));checks++;
    await page.route('**/sermons.json?*',route=>route.fulfill({json:{schema_version:1,meta:{total:0},sermons:[{bad:true}]}}));await page.locator('#refresh').click();await page.waitForFunction(()=>document.querySelector('#notice').classList.contains('error'));assert.equal(await page.locator('#rows tr').count(),30);checks++;
    assert.deepEqual(errors,[]);checks++;await context.close();console.log(`PASS ${name} ${width}px`);

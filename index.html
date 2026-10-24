@@ -157,7 +157,7 @@ return {BOOKS,SERVICES,normalize,overlaps,index,filter,csv,validate};
  $('refresh').onclick=()=>load(true);$('csv').onclick=()=>{const url=URL.createObjectURL(new Blob([A.csv(filtered)],{type:'text/csv;charset=utf-8;'})),a=el('a');a.href=url;a.download=`oryun-sermons-${new Date().toISOString().slice(0,10)}.csv`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
  $('rows').addEventListener('click',e=>{const b=e.target.closest('[data-compare]');if(!b)return;compareId=b.dataset.compare;compareLimit=20;renderCompare();$('compareDialog').showModal();});
  $('closeDialog').onclick=()=>$('compareDialog').close();for(const radio of document.querySelectorAll('[name=compareMode]'))radio.onchange=()=>{compareLimit=20;renderCompare();};$('moreCompare').onclick=()=>{compareLimit+=20;renderCompare();};
- updateBooks();load();setInterval(()=>{if(!document.hidden)load();},5*60*1000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)load();});
+ updateBooks();load();setInterval(()=>load(),5*60*1000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)load();});
 })();
 </script>
 </body>
