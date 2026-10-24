@@ -48,6 +48,9 @@
 - 공식 목록 밖의 삭제/비공개 과거 설교는 수집하지 않음.
 - GitHub Pages Source=GitHub Actions, Actions 기본 토큰 쓰기 권한, 활성 예약 워크플로 확인.
 - [수집 없는 검증 데이터 배포 실행](https://github.com/ssung123-del/oryun-sermon-archive/actions/runs/40137544005): update/deploy 성공.
+- [최종 배포 실행](https://github.com/ssung123-del/oryun-sermon-archive/actions/runs/40137709076): 성공.
 - 공개 사이트 index와 sermons.json HTTP 200, 공개 JSON 전체 Python 검증 성공. 1,458개 출처 항목 / 고유 설교 1,370편.
+- 최종 공개 index.html·sermons.json이 로컬 검증본과 바이트 단위로 일치.
+- 공개 URL을 Chromium 데스크톱·WebKit 모바일로 재확인: 1,370편 표시, 요 8:1-11 + 요한복음 8장 검색 3편, 본문 비교 창 정상, JavaScript 오류 없음.
 - **미해결:** GitHub 기본 runner의 공식 사이트 수집은 TCP 연결 시간 초과로 실패. Linux x64·Linux ARM·macOS 모두 DNS는 정상, robots.txt의 443 연결 실패. [진단 기록](https://github.com/ssung123-del/oryun-sermon-archive/actions/runs/40137547170). 서버/네트워크 차단 여부는 확정할 수 없음. 예약은 등록했으나 완전 자동 수집이 정상 운영된다고 보고하지 않음.
 - 위 실제 수집 실패 시 기존 JSON이 변경되지 않고 deploy가 생략되는 것까지 확인. 프록시·대체 도메인·TLS 해제 등 우회는 사용하지 않음.
