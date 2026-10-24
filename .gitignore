@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+logs/
+sermons.json.bak
+.node-test/
+tests/artifacts/
+.DS_Store
+node_modules/
+package-lock.json
+_site/

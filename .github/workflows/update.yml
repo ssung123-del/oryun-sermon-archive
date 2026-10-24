@@ -1,0 +1,130 @@
+name: Update sermons and deploy Pages
+
+on:
+  schedule:
+    - cron: "10 9 * * *"
+      timezone: "Asia/Seoul"
+  workflow_dispatch:
+    inputs:
+      full:
+        description: "과거 전체 목록 재검사 (평소에는 false)"
+        type: boolean
+        default: false
+      deploy_only:
+        description: "수집 없이 현재 정상 데이터 배포 (복구/화면 수정용)"
+        type: boolean
+        default: false
+  push:
+    branches: [main, master]
+    paths:
+      - index.html
+      - sermons.json
+      - scraper.py
+      - requirements.txt
+      - tests/**
+      - .github/workflows/update.yml
+
+permissions:
+  contents: read
+
+concurrency:
+  group: oryun-archive-pages
+  cancel-in-progress: false
+
+jobs:
+  update:
+    if: github.ref_name == github.event.repository.default_branch
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 1
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+      - name: Install crawler dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Test parsers and failure recovery
+        run: python -m unittest discover -s tests -v
+      - name: Test browser-independent search logic
+        run: node --test tests/core.test.cjs
+      - name: Collect public metadata
+        if: ${{ !inputs.deploy_only }}
+        env:
+          FULL_SCAN: ${{ inputs.full }}
+        run: |
+          if [ "$FULL_SCAN" = "true" ]; then
+            python scraper.py --full
+          else
+            python scraper.py
+          fi
+      - name: Validate publishable data
+        run: |
+          python scraper.py --validate-only
+          node --test tests/core.test.cjs
+      - name: Persist successful data
+        run: |
+          git add sermons.json
+          if ! git diff --cached --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "data: update sermon metadata"
+            git push origin "HEAD:${{ github.event.repository.default_branch }}"
+          fi
+      - name: Stage only public site files
+        run: |
+          mkdir -p _site
+          cp index.html sermons.json _site/
+          touch _site/.nojekyll
+      - name: Upload explicit Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+      - name: Record execution summary
+        if: always()
+        env:
+          RUN_STATUS: ${{ job.status }}
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as f:
+              f.write('## Oryun archive\n\nJob status: ' + os.environ['RUN_STATUS'] + '\n\n')
+              if Path('sermons.json').exists():
+                  d = json.loads(Path('sermons.json').read_text())
+                  f.write('Last successful collection (UTC): ' + str(d['meta'].get('last_success_at')) + '\n\n')
+                  f.write('Total sermons: ' + str(d['meta']['total']) + '\n\n')
+                  f.write('Collection stats: `' + json.dumps(d['meta'].get('stats', {})) + '`\n')
+          PY
+      - name: Keep success and failure logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: crawler-logs-${{ github.run_id }}
+          path: logs/
+          if-no-files-found: ignore
+          retention-days: 14
+
+  deploy:
+    needs: update
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/configure-pages@v5
+      - name: Deploy the artifact from this workflow
+        id: deployment
+        uses: actions/deploy-pages@v4
