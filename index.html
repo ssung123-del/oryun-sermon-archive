@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#295c50">
+<meta name="description" content="오륜교회 설교를 설교자, 날짜, 성경 본문으로 찾는 비공식 메타데이터 아카이브입니다.">
+<title>오륜 설교 아카이브</title>
+<style>
+:root{color-scheme:light;--ink:#23352f;--muted:#6f7974;--green:#295c50;--pale:#edf4f0;--line:#e2e7e3;--paper:#fff;--bg:#f8faf8}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif}button,input,select{font:inherit}button,a,input,select{touch-action:manipulation}button{cursor:pointer}a{color:inherit}button:disabled{cursor:default;opacity:.45}:focus-visible{outline:3px solid #83b4a2;outline-offset:3px}header{border-bottom:1px solid var(--line);background:white}.topbar{max-width:1280px;margin:auto;padding:23px 36px;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{display:flex;align-items:center;gap:12px;font-weight:750;letter-spacing:-.4px;text-decoration:none}.mark{display:grid;place-items:center;background:var(--green);border-radius:10px;width:36px;height:36px;color:white}.brand small{font-size:11px;letter-spacing:1.5px;display:block;color:var(--muted);font-weight:500}.official{font-size:13px;color:var(--muted);text-decoration:none}main{max-width:1280px;margin:0 auto;padding:43px 36px 60px}.eyebrow{font-size:11px;font-weight:700;letter-spacing:2px;color:var(--green);margin:0 0 10px}h1{font-size:34px;line-height:1.4;letter-spacing:-1.4px;margin:0 0 12px}h2{font-size:20px;letter-spacing:-.6px}.intro{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:30px}.intro p{color:var(--muted);margin:0}.archive-count{text-align:right;white-space:nowrap}.archive-count strong{font-size:32px;letter-spacing:-1px}.archive-count span{color:var(--muted);font-size:13px;display:block}.searchbox{position:relative}.searchbox svg{position:absolute;left:20px;top:20px;color:var(--green)}#search{width:100%;height:64px;border:1px solid #b7c9be;border-radius:12px;background:white;padding:0 54px 0 55px;font-size:17px;box-shadow:0 3px 10px #22352f04}#clearSearch{position:absolute;right:12px;top:15px;border:0;background:transparent;font-size:20px;color:var(--muted);width:34px;height:34px}.searchhint{font-size:12px;color:var(--muted);margin:9px 3px 26px}.panel{background:white;border:1px solid var(--line);border-radius:12px}.types{display:flex;gap:7px;flex-wrap:wrap;padding:19px 22px;border-bottom:1px solid var(--line)}.type{border:1px solid transparent;background:transparent;color:var(--muted);border-radius:7px;padding:7px 13px;font-size:13px}.type[aria-pressed=true]{background:var(--pale);color:var(--green);font-weight:700;border-color:#d5e4da}.filters{display:grid;grid-template-columns:.8fr 1.1fr .65fr 1.5fr;gap:18px;padding:21px 23px}.field label,.field legend{display:block;font-size:12px;font-weight:600;margin-bottom:7px;color:#59685f}.field select,.field input{background:#fff;border:1px solid var(--line);border-radius:6px;width:100%;height:40px;padding:0 10px;color:var(--ink);min-width:0}.dates{display:flex;align-items:center;gap:8px}.dates span{color:var(--muted)}fieldset{padding:0;margin:0;border:0;min-width:0}.field legend{padding:0}#chapter:disabled{background:var(--bg)}.filter-footer{padding:0 23px 17px;display:flex;align-items:center;justify-content:space-between;gap:10px}.text-button{border:0;background:transparent;color:var(--muted);padding:4px 0;font-size:12px}.text-button:hover{color:var(--green)}.filter-note{font-size:11px;color:var(--muted)}.toolbar{display:flex;justify-content:space-between;align-items:center;gap:14px;margin:30px 0 13px}.results-title{font-size:14px;display:flex;gap:8px;align-items:baseline}.results-title strong{font-size:19px;color:var(--green)}.tools{display:flex;gap:9px;align-items:center}.tools select{background:transparent;border:0;font-size:13px;color:var(--muted);max-width:120px}.button{border:1px solid var(--line);border-radius:6px;background:white;color:var(--ink);padding:8px 12px;font-size:12px}.button:hover{border-color:#a6bcae;background:#fafcfa}.button.primary{background:var(--green);color:white;border-color:var(--green)}.table-wrap{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:white}table{width:100%;border-collapse:collapse;text-align:left;table-layout:fixed}th{color:var(--muted);font-size:11px;font-weight:600;letter-spacing:.3px;background:#f4f7f4;padding:13px 17px;border-bottom:1px solid var(--line)}td{padding:20px 17px;border-bottom:1px solid #edf0ed;font-size:13px;vertical-align:top;overflow-wrap:anywhere}tbody tr:last-child td{border-bottom:0}tbody tr:hover{background:#fbfcfa}.datecol{width:109px}.titlecol{width:32%}.speakercol{width:90px}.refcol{width:auto}.servicecol{width:118px}.actioncol{width:107px}.sermon-title{font-size:15px;font-weight:650;text-decoration:none;line-height:1.7;display:block;letter-spacing:-.3px}.sermon-title:hover{color:var(--green);text-decoration:underline}.date{font-variant-numeric:tabular-nums;color:var(--muted);font-size:12px}.badge{display:inline-block;background:#f2f5f1;border-radius:4px;padding:3px 7px;color:#607266;font-size:11px;white-space:nowrap}.ref{color:#475e51}.unparsed{display:block;color:#98732e;font-size:10px;margin-top:4px}.compare{background:white;border:1px solid var(--line);border-radius:5px;font-size:11px;padding:5px 8px;color:var(--muted);white-space:nowrap}.compare:hover{border-color:#99b6a6;color:var(--green)}.state{text-align:center;padding:60px 20px;color:var(--muted);background:white}.state strong{display:block;color:var(--ink);margin-bottom:6px;font-size:16px}.pager{display:flex;align-items:center;justify-content:center;gap:18px;margin:23px 0}.pager button{width:35px;height:35px;border:1px solid var(--line);border-radius:6px;background:white}.pager span{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}#notice{font-size:12px;padding:12px 15px;border:1px solid #dce7df;border-radius:7px;margin:0 0 17px;background:#f1f7f3;overflow-wrap:anywhere}#notice.error{color:#8f422e;border-color:#efd9d0;background:#fff5ef}[hidden]{display:none!important}.statusline{display:flex;gap:12px;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:20px;margin-top:25px;color:var(--muted);font-size:11px}.statusline p{margin:0}.statusline time{color:#405b4b}.dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#76a68b;margin-right:5px}footer{max-width:1280px;padding:0 36px 32px;margin:auto;color:var(--muted);font-size:11px;display:flex;justify-content:space-between;gap:20px}footer p{margin:0}footer a{text-underline-offset:3px}dialog{width:min(820px,calc(100% - 28px));border:1px solid var(--line);border-radius:14px;padding:26px;color:var(--ink);max-height:85vh}dialog::backdrop{background:#10281a66}.dialog-head{display:flex;align-items:center;justify-content:space-between;gap:12px}.dialog-head h2{margin:0}.dialog-head button{border:0;background:var(--bg);width:32px;height:32px;border-radius:50%;font-size:20px}.base-ref{background:var(--pale);border-radius:7px;padding:14px;margin:18px 0;font-size:13px}.compare-options{display:flex;gap:22px;flex-wrap:wrap;font-size:13px;margin:18px 0}.compare-options label{cursor:pointer}#compareResults article{padding:15px 0;border-top:1px solid var(--line)}#compareResults p{margin:5px 0;color:var(--muted);font-size:12px}.relation{font-size:10px;color:var(--green);margin-left:10px}.skip{position:absolute;top:-80px;left:20px;background:white;padding:12px;z-index:3}.skip:focus{top:5px}.mobilelabel{display:none}.rangeerror{color:#a0442a;font-size:12px;margin:0 23px 15px}
+@media(min-width:1400px){main{padding-top:54px}}
+@media(max-width:900px){.filters{grid-template-columns:1fr 1.3fr .7fr}.datefield{grid-column:1/-1}.servicecol{display:none}td.servicecell{display:none}.titlecol{width:31%}.refcol{width:auto}.filter-note{max-width:70%}.datecol{width:100px}.speakercol{width:80px}.actioncol{width:100px}th,td{padding-left:12px;padding-right:12px}}
+@media(max-width:640px){.topbar{padding:18px 20px}.brand{font-size:14px;gap:9px}.brand small{font-size:9px}.official{font-size:11px}.mark{width:32px;height:32px;border-radius:8px}main{padding:30px 18px 35px}h1{font-size:27px}.intro{align-items:flex-start;gap:10px;margin-bottom:24px}.intro p{font-size:12px;max-width:245px}.archive-count strong{font-size:25px}.archive-count span{font-size:10px}.eyebrow{font-size:9px}#search{height:59px;font-size:14px;padding-left:47px}.searchbox svg{left:16px;top:18px}.searchhint{font-size:10px;margin-bottom:22px}.types{padding:13px 12px;gap:4px}.type{font-size:11px;padding:7px 9px}.filters{padding:18px 15px;gap:13px 10px;grid-template-columns:1fr 1.25fr .65fr}.field label,.field legend{font-size:11px}.field select,.field input{font-size:12px;padding:0 7px;height:40px}.datefield{grid-column:1/-1}.filter-footer{padding:0 15px 15px}.filter-note{font-size:10px}.toolbar{margin-top:23px;gap:8px}.tools{gap:5px}.tools select{font-size:11px;max-width:83px}.button{font-size:11px;padding:7px 9px}.results-title{font-size:12px;gap:4px}.results-title strong{font-size:17px}table,tbody{display:block}thead{display:none}.table-wrap{background:transparent;border:0;overflow:visible}tbody{display:grid;gap:11px}tbody tr{display:grid;grid-template-columns:1fr auto;gap:8px 9px;padding:18px;background:white;border:1px solid var(--line);border-radius:9px}td{display:block;padding:0;border:0;font-size:12px}.datecell{grid-column:1;grid-row:1}.titlecell{grid-column:1/-1;grid-row:2}.speakercell{grid-row:3;grid-column:1;color:var(--muted)}.refcell{grid-row:4;grid-column:1/-1;font-size:12px}.servicecell{display:block!important;grid-row:1;grid-column:2;text-align:right}.actioncell{grid-row:3;grid-column:2;text-align:right}.mobilelabel{display:inline}.sermon-title{font-size:15px}.badge{font-size:10px}.compare{font-size:10px}.statusline{align-items:flex-start;gap:12px;font-size:10px}.statusline p{max-width:240px}footer{padding:0 18px 25px;display:block;font-size:10px}footer p+p{margin-top:8px}dialog{padding:20px}.compare-options{gap:12px;font-size:12px}.rangeerror{margin-left:15px}}
+.fetch-tools{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;margin:0 0 22px}.fetch-actions{display:flex;align-items:center;gap:11px;flex-wrap:wrap}.fetch-actions .button{font-size:13px;padding:10px 16px}.fetch-actions label{font-size:12px;color:var(--muted);cursor:pointer}.scope-note{font-size:11px;color:var(--muted);margin:0}.fetch-actions input{accent-color:var(--green)}@media(max-width:640px){.fetch-tools{gap:8px}.fetch-actions{gap:8px}.fetch-actions .button{font-size:12px;padding:10px 12px}.fetch-actions label{font-size:11px}.scope-note{font-size:10px}}
+</style>
+</head>
+<body>
+<a href="#search" class="skip">설교 검색으로 바로가기</a>
+<header><div class="topbar"><a class="brand" href="./"><span class="mark" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 4.5c4-1 6-.5 9 1.5 3-2 5-2.5 9-1.5v15c-4-1-6-.5-9 1.5-3-2-5-2.5-9-1.5zM12 6v15"/></svg></span><span>오륜 설교 아카이브<small>ORYUN SERMON ARCHIVE</small></span></a><a class="official" href="https://oryun.org/tv/?menu=57" target="_blank" rel="noopener noreferrer">오륜교회 공식 홈페이지 ↗</a></div></header>
+<main>
+<div class="intro"><div><p class="eyebrow">EXPLORE THE WORD</p><h1>말씀을 찾고, 은혜를 이어가세요.</h1><p>흩어져 있던 설교를 한곳에서. 설교자, 제목, 성경 본문으로 찾아보세요.</p></div><div class="archive-count"><strong id="totalCount">—</strong><span>편의 설교 아카이브</span></div></div>
+<div class="searchbox"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10.5" cy="10.5" r="7.5"/><path d="m16 16 5 5"/></svg><input type="search" id="search" aria-label="설교자, 설교 제목, 성경 본문 통합검색" placeholder="설교자, 설교 제목 또는 성경 본문 검색" autocomplete="off"><button id="clearSearch" aria-label="검색어 지우기" hidden>×</button></div>
+<p class="searchhint">예: 주경훈 · 믿음 · 요 8:1-11 &nbsp; | &nbsp; 성경 본문 범위 검색은 서로 겹치는 설교를 찾습니다.</p>
+<div class="fetch-tools"><div class="fetch-actions"><button id="crawl" class="button primary" disabled>설교 목록 불러오기 ↻</button><button id="cancelCrawl" class="button" hidden>취소</button><label><input type="checkbox" id="fullScan"> 과거 전체도 확인</label></div><p id="scopeNote" class="scope-note">버튼을 누르면 공식 홈페이지에서 최신 목록을 가져옵니다.</p></div>
+<div id="notice" role="status" hidden></div>
+<section class="panel" aria-label="설교 필터"><div class="types" id="services" role="group" aria-label="예배 유형"></div><div class="filters">
+<div class="field"><label for="testament">성경 구분</label><select id="testament"><option value="">구약 · 신약 전체</option value="OT">구약성경</option><option value="NT">신약성경</option></select></div>
+<div class="field"><label for="book">성경</label><select id="book"><option value="">성경 66권 전체</option></select></div>
+<div class="field"><label for="chapter">장</label><input type="number" id="chapter" min="1" max="150" placeholder="전체" disabled></div>
+<fieldset class="field datefield"><legend>설교 날짜</legend><div class="dates"><input type="date" id="dateFrom" aria-label="시작 날짜"><span>–</span><input type="date" id="dateTo" aria-label="종료 날짜"></div></fieldset>
+</div><p class="rangeerror" id="rangeError" role="alert" hidden></p><div class="filter-footer"><span class="filter-note">필터는 함께 적용됩니다. 해석되지 않은 본문은 원문으로 검색할 수 있습니다.</span><button class="text-button" id="reset">↺ 필터 초기화</button></div></section>
+<div class="toolbar"><div class="results-title">검색 결과 <strong id="resultCount">—</strong><span>편</span></div><div class="tools"><select id="sort" aria-label="설교 정렬"><option value="desc">최신순</option><option value="asc">오래된순</option></select><button id="csv" class="button" disabled>CSV 다운로드 ↓</button></div></div>
+<div class="table-wrap" aria-busy="true" id="tableWrap"><table aria-label="설교 검색 결과"><colgroup><col class="datecol"><col class="titlecol"><col class="speakercol"><col class="refcol"><col class="servicecol"><col class="actioncol"></colgroup><thead><tr><th>설교 날짜</th><th>설교 제목</th><th>설교자</th><th>성경 본문</th><th class="servicecol">예배 구분</th><th>본문 비교</th></tr></thead><tbody id="rows"></tbody></table><div class="state" id="state" role="status"><strong>설교를 불러오고 있습니다.</strong>잠시만 기다려 주세요.</div></div>
+<nav class="pager" aria-label="검색 결과 페이지" id="pager" hidden><button id="prev" aria-label="이전 페이지">←</button><span id="pageLabel" aria-live="polite"></span><button id="next" aria-label="다음 페이지">→</button></nav>
+<div class="statusline"><p><span class="dot"></span>마지막 목록 확인 <time id="updated">아직 확인 전</time><br>불러온 목록은 이 브라우저에 저장됩니다. 모든 시간은 한국시간입니다.</p><button id="refresh" class="text-button">목록 다시 열기 ↻</button></div>
+</main>
+<footer><p>출처: <a href="https://oryun.org/tv/?menu=57" target="_blank" rel="noopener noreferrer">오륜교회 공식 홈페이지</a> · 비공식 비영리 검색 아카이브<br>설교 메타데이터와 원본 링크만 제공합니다. 영상과 성경 전문은 저장·배포하지 않습니다.</p><p><a href="https://oryun.org/about/?menu=312" target="_blank" rel="noopener noreferrer">원본 사이트 이용약관 ↗</a></p></footer>
+<dialog id="compareDialog" aria-labelledby="compareHeading"><div class="dialog-head"><h2 id="compareHeading">같은 말씀, 다른 설교</h2><button id="closeDialog" aria-label="본문 비교 닫기">×</button></div><p style="font-size:12px;color:var(--muted)">선택한 설교를 기준으로 전체 아카이브에서 비교합니다. 현재 검색 필터는 적용하지 않습니다.</p><div id="baseReference" class="base-ref"></div><div class="compare-options"><label><input type="radio" name="compareMode" value="exact" checked> 정확히 동일한 본문</label><label><input type="radio" name="compareMode" value="overlap"> 겹치는 본문 (동일 범위 제외)</label></div><p id="compareCount" style="font-size:12px"></p><div id="compareResults"></div><button class="button" id="moreCompare" hidden>더 보기</button></dialog>
+<script id="archive-core">
+'use strict';
+globalThis.Archive = (() => {
+const BOOKS = [{"id":1,"name":"창세기","aliases":["창세기","창"],"testament":"OT","verses":[31,25,24,26,32,22,24,22,29,32,32,20,18,24,21,16,27,33,38,18,34,24,20,67,34,35,46,22,35,43,55,32,20,31,29,43,36,30,23,23,57,38,34,34,28,34,31,22,33,26]},{"id":2,"name":"출애굽기","aliases":["출애굽기","출"],"testament":"OT","verses":[22,25,22,31,23,30,25,32,35,29,10,51,22,31,27,36,16,27,25,26,36,31,33,18,40,37,21,43,46,38,18,35,23,35,35,38,29,31,43,38]},{"id":3,"name":"레위기","aliases":["레위기","레"],"testament":"OT","verses":[17,16,17,35,19,30,38,36,24,20,47,8,59,57,33,34,16,30,37,27,24,33,44,23,55,46,34]},{"id":4,"name":"민수기","aliases":["민수기","민"],"testament":"OT","verses":[54,34,51,49,31,27,89,26,23,36,35,16,33,45,41,50,13,32,22,29,35,41,30,25,18,65,23,31,40,16,54,42,56,29,34,13]},{"id":5,"name":"신명기","aliases":["신명기","신"],"testament":"OT","verses":[46,37,29,49,33,25,26,20,29,22,32,32,18,29,23,22,20,22,21,20,23,30,25,22,19,19,26,68,29,20,30,52,29,12]},{"id":6,"name":"여호수아","aliases":["여호수아","수"],"testament":"OT","verses":[18,24,17,24,15,27,26,35,27,43,23,24,33,15,63,10,18,28,51,9,45,34,16,33]},{"id":7,"name":"사사기","aliases":["사사기","삿"],"testament":"OT","verses":[36,23,31,24,31,40,25,35,57,18,40,15,25,20,20,31,13,31,30,48,25]},{"id":8,"name":"룻기","aliases":["룻기","룻"],"testament":"OT","verses":[22,23,18,22]},{"id":9,"name":"사무엘상","aliases":["사무엘상","삼상"],"testament":"OT","verses":[28,36,21,22,12,21,17,22,27,27,15,25,23,52,35,23,58,30,24,42,15,23,29,22,44,25,12,25,11,31,13]},{"id":10,"name":"사무엘하","aliases":["사무엘하","삼하"],"testament":"OT","verses":[27,32,39,12,25,23,29,18,13,19,27,31,39,33,37,23,29,33,43,26,22,51,39,25]},{"id":11,"name":"열왕기상","aliases":["열왕기상","왕상"],"testament":"OT","verses":[53,46,28,34,18,38,51,66,28,29,43,33,34,31,34,34,24,46,21,43,29,53]},{"id":12,"name":"열왕기하","aliases":["열왕기하","왕하"],"testament":"OT","verses":[18,25,27,44,27,33,20,29,37,36,21,21,25,29,38,20,41,37,37,21,26,20,37,20,30]},{"id":13,"name":"역대상","aliases":["역대상","대상"],"testament":"OT","verses":[54,55,24,43,26,81,40,40,44,14,47,40,14,17,29,43,27,17,19,8,30,19,32,31,31,32,34,21,30]},{"id":14,"name":"역대하","aliases":["역대하","대하"],"testament":"OT","verses":[17,18,17,22,14,42,22,18,31,19,23,16,22,15,19,14,19,34,11,37,20,12,21,27,28,23,9,27,36,27,21,33,25,33,27,23]},{"id":15,"name":"에스라","aliases":["에스라","스"],"testament":"OT","verses":[11,70,13,24,17,22,28,36,15,44]},{"id":16,"name":"느헤미야","aliases":["느헤미야","느"],"testament":"OT","verses":[11,20,32,23,19,19,73,18,38,39,36,47,31]},{"id":17,"name":"에스더","aliases":["에스더","에"],"testament":"OT","verses":[22,23,15,17,14,14,10,17,32,3]},{"id":18,"name":"욥기","aliases":["욥기","욥"],"testament":"OT","verses":[22,13,26,21,27,30,21,22,35,22,20,25,28,22,35,22,16,21,29,29,34,30,17,25,6,14,23,28,25,31,40,22,33,37,16,33,24,41,30,24,34,17]},{"id":19,"name":"시편","aliases":["시편","시"],"testament":"OT","verses":[6,12,8,8,12,10,17,9,20,18,7,8,6,7,5,11,15,50,14,9,13,31,6,10,22,12,14,9,11,12,24,11,22,22,28,12,40,22,13,17,13,11,5,26,17,11,9,14,20,23,19,9,6,7,23,13,11,11,17,12,8,12,11,10,13,20,7,35,36,5,24,20,28,23,10,12,20,72,13,19,16,8,18,12,13,17,7,18,52,17,16,15,5,23,11,13,12,9,9,5,8,28,22,35,45,48,43,13,31,7,10,10,9,8,18,19,2,29,176,7,8,9,4,8,5,6,5,6,8,8,3,18,3,3,21,26,9,8,24,13,10,7,12,15,21,10,20,14,9,6]},{"id":20,"name":"잠언","aliases":["잠언","잠"],"testament":"OT","verses":[33,22,35,27,23,35,27,36,18,32,31,28,25,35,33,33,28,24,29,30,31,29,35,34,28,28,27,28,27,33,31]},{"id":21,"name":"전도서","aliases":["전도서","전"],"testament":"OT","verses":[18,26,22,16,20,12,29,17,18,20,10,14]},{"id":22,"name":"아가","aliases":["아가","아","아가서"],"testament":"OT","verses":[17,17,11,16,16,13,13,14]},{"id":23,"name":"이사야","aliases":["이사야","사"],"testament":"OT","verses":[31,22,26,6,30,13,25,22,21,34,16,6,22,32,9,14,14,7,25,6,17,25,18,23,12,21,13,29,24,33,9,20,24,17,10,22,38,22,8,31,29,25,28,28,25,13,15,22,26,11,23,15,12,17,13,12,21,14,21,22,11,12,19,12,25,24]},{"id":24,"name":"예레미야","aliases":["예레미야","렘"],"testament":"OT","verses":[19,37,25,31,31,30,34,22,26,25,23,17,27,22,21,21,27,23,15,18,14,30,40,10,38,24,22,17,32,24,40,44,26,22,19,32,21,28,18,16,18,22,13,30,5,28,7,47,39,46,64,34]},{"id":25,"name":"예레미야애가","aliases":["예레미야애가","애","예레미야 애가"],"testament":"OT","verses":[22,22,66,22,22]},{"id":26,"name":"에스겔","aliases":["에스겔","겔"],"testament":"OT","verses":[28,10,27,17,17,14,27,18,11,22,25,28,23,23,8,63,24,32,14,49,32,31,49,27,17,21,36,26,21,26,18,32,33,31,15,38,28,23,29,49,26,20,27,31,25,24,23,35]},{"id":27,"name":"다니엘","aliases":["다니엘","단"],"testament":"OT","verses":[21,49,30,37,31,28,28,27,27,21,45,13]},{"id":28,"name":"호세아","aliases":["호세아","호"],"testament":"OT","verses":[11,23,5,19,15,11,16,14,17,15,12,14,16,9]},{"id":29,"name":"요엘","aliases":["요엘","욜"],"testament":"OT","verses":[20,32,21]},{"id":30,"name":"아모스","aliases":["아모스","암"],"testament":"OT","verses":[15,16,15,13,27,14,17,14,15]},{"id":31,"name":"오바댜","aliases":["오바댜","옵"],"testament":"OT","verses":[21]},{"id":32,"name":"요나","aliases":["요나","욘"],"testament":"OT","verses":[17,10,10,11]},{"id":33,"name":"미가","aliases":["미가","미"],"testament":"OT","verses":[16,13,12,13,15,16,20]},{"id":34,"name":"나훔","aliases":["나훔","나"],"testament":"OT","verses":[15,13,19]},{"id":35,"name":"하박국","aliases":["하박국","합"],"testament":"OT","verses":[17,20,19]},{"id":36,"name":"스바냐","aliases":["스바냐","습"],"testament":"OT","verses":[18,15,20]},{"id":37,"name":"학개","aliases":["학개","학"],"testament":"OT","verses":[15,23]},{"id":38,"name":"스가랴","aliases":["스가랴","슥"],"testament":"OT","verses":[21,13,10,14,11,15,14,23,17,12,17,14,9,21]},{"id":39,"name":"말라기","aliases":["말라기","말"],"testament":"OT","verses":[14,17,18,6]},{"id":40,"name":"마태복음","aliases":["마태복음","마"],"testament":"NT","verses":[25,23,17,25,48,34,29,34,38,42,30,50,58,36,39,28,27,35,30,34,46,46,39,51,46,75,66,20]},{"id":41,"name":"마가복음","aliases":["마가복음","막"],"testament":"NT","verses":[45,28,35,41,43,56,37,38,50,52,33,44,37,72,47,20]},{"id":42,"name":"누가복음","aliases":["누가복음","눅"],"testament":"NT","verses":[80,52,38,44,39,49,50,56,62,42,54,59,35,35,32,31,37,43,48,47,38,71,56,53]},{"id":43,"name":"요한복음","aliases":["요한복음","요"],"testament":"NT","verses":[51,25,36,54,47,71,53,59,41,42,57,50,38,31,27,33,26,40,42,31,25]},{"id":44,"name":"사도행전","aliases":["사도행전","행"],"testament":"NT","verses":[26,47,26,37,42,15,60,40,43,48,30,25,52,28,41,40,34,28,41,38,40,30,35,27,27,32,44,31]},{"id":45,"name":"로마서","aliases":["로마서","롬"],"testament":"NT","verses":[32,29,31,25,21,23,25,39,33,21,36,21,14,23,33,27]},{"id":46,"name":"고린도전서","aliases":["고린도전서","고전"],"testament":"NT","verses":[31,16,23,21,13,20,40,13,27,33,34,31,13,40,58,24]},{"id":47,"name":"고린도후서","aliases":["고린도후서","고후"],"testament":"NT","verses":[24,17,18,18,21,18,16,24,15,18,33,21,14]},{"id":48,"name":"갈라디아서","aliases":["갈라디아서","갈"],"testament":"NT","verses":[24,21,29,31,26,18]},{"id":49,"name":"에베소서","aliases":["에베소서","엡"],"testament":"NT","verses":[23,22,21,32,33,24]},{"id":50,"name":"빌립보서","aliases":["빌립보서","빌"],"testament":"NT","verses":[30,30,21,23]},{"id":51,"name":"골로새서","aliases":["골로새서","골"],"testament":"NT","verses":[29,23,25,18]},{"id":52,"name":"데살로니가전서","aliases":["데살로니가전서","살전"],"testament":"NT","verses":[10,20,13,18,28]},{"id":53,"name":"데살로니가후서","aliases":["데살로니가후서","살후"],"testament":"NT","verses":[12,17,18]},{"id":54,"name":"디모데전서","aliases":["디모데전서","딤전"],"testament":"NT","verses":[20,15,16,16,25,21]},{"id":55,"name":"디모데후서","aliases":["디모데후서","딤후"],"testament":"NT","verses":[18,26,17,22]},{"id":56,"name":"디도서","aliases":["디도서","딛"],"testament":"NT","verses":[16,15,15]},{"id":57,"name":"빌레몬서","aliases":["빌레몬서","몬"],"testament":"NT","verses":[25]},{"id":58,"name":"히브리서","aliases":["히브리서","히"],"testament":"NT","verses":[14,18,19,16,14,20,28,13,28,39,40,29,25]},{"id":59,"name":"야고보서","aliases":["야고보서","약"],"testament":"NT","verses":[27,26,18,17,20]},{"id":60,"name":"베드로전서","aliases":["베드로전서","벧전"],"testament":"NT","verses":[25,25,22,19,14]},{"id":61,"name":"베드로후서","aliases":["베드로후서","벧후"],"testament":"NT","verses":[21,22,18]},{"id":62,"name":"요한일서","aliases":["요한일서","요일","요한1서"],"testament":"NT","verses":[10,29,24,21,21]},{"id":63,"name":"요한이서","aliases":["요한이서","요이","요한2서"],"testament":"NT","verses":[13]},{"id":64,"name":"요한삼서","aliases":["요한삼서","요삼","요한3서"],"testament":"NT","verses":[14]},{"id":65,"name":"유다서","aliases":["유다서","유"],"testament":"NT","verses":[25]},{"id":66,"name":"요한계시록","aliases":["요한계시록","계"],"testament":"NT","verses":[20,29,22,11,14,17,17,13,21,11,19,17,18,20,8,21,18,24,21,15,27,21]}];
+const SERVICES = ['주일예배','수요예배','금요기도회','주일예배(부목사)','외부강사'];
+const aliases = new Map(BOOKS.flatMap(b=>b.aliases.map(a=>[a.replace(/\s+/g,''),b])));
+const escapeRE=s=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+const bookPattern=new RegExp([...aliases.keys()].sort((a,b)=>b.length-a.length).map(escapeRE).join('|'),'g');
+const fold=s=>s.toLocaleLowerCase('ko').replace(/\s+/g,'');
+function normalize(raw){
+ const fail={status:'failed',ranges:[],key:null,error:'지원하지 않거나 유효하지 않은 성경 본문 표기'};
+ const v=raw.replace(/\s+/g,'').replace(/：/g,':').replace(/[~～〜–—−]/g,'-').replace(/，/g,',').replace(/；/g,';');
+ const matches=[...v.matchAll(new RegExp(bookPattern.source,'g'))];if(!matches.length||matches[0].index!==0)return fail;
+ const intervals=[];
+ try{
+  matches.forEach((m,i)=>{
+   const b=aliases.get(m[0]);let tail=v.slice(m.index+m[0].length,matches[i+1]?.index??v.length);if(i+1<matches.length)tail=tail.replace(/(?:[;,/·]|및)+$/g,'');
+   tail=tail.replace(/장/g,':').replace(/절/g,'').replace(/:(?=[,;-]|$)/g,'');let chapter=null,vc=false;
+   for(const piece of tail.split(/[,;]/)){
+    const p=piece.match(/^(\d+)(?::(\d+))?(?:-(\d+)(?::(\d+))?)?$/);if(!p)throw Error();
+    const [a,v,e,ev]=p.slice(1).map(x=>x?Number(x):null);let sc,sv,ec,ve;
+    if(v!==null){sc=a;sv=v;[ec,ve]=ev!==null?[e,ev]:[a,e??v];chapter=ec;vc=true;}
+    else if(vc){if(ev!==null)throw Error();sc=ec=chapter;sv=a;ve=e??a;}
+    else{if(ev!==null)throw Error();sc=a;ec=e??a;sv=1;ve=b.verses[ec-1]??0;chapter=ec;}
+    if(!(sc>=1&&sc<=ec&&ec<=b.verses.length&&sv>=1&&sv<=b.verses[sc-1]&&ve>=1&&ve<=b.verses[ec-1])||(sc===ec&&sv>ve))throw Error();
+    for(let ch=sc;ch<=ec;ch++)intervals.push({book:b.id,chapter:ch,start:ch===sc?sv:1,end:ch===ec?ve:b.verses[ch-1]});
+   }
+  });
+  intervals.sort((a,b)=>a.book-b.book||a.chapter-b.chapter||a.start-b.start||a.end-b.end);const ranges=[];
+  for(const r of intervals){const p=ranges.at(-1);if(p&&p.book===r.book&&p.chapter===r.chapter&&r.start<=p.end+1)p.end=Math.max(p.end,r.end);else ranges.push({...r});}
+  if(!ranges.length)return fail;return {status:'ok',ranges,key:ranges.map(r=>`${r.book}:${r.chapter}:${r.start}-${r.end}`).join(';'),error:null};
+ }catch{return fail;}
+}
+function overlaps(a,b){return a.status==='ok'&&b.status==='ok'&&a.ranges.some(x=>b.ranges.some(y=>x.book===y.book&&x.chapter===y.chapter&&x.start<=y.end&&y.start<=x.end));}
+function index(records){
+ const groups=new Map();for(const r of [...records].sort((a,b)=>a.menu-b.menu)){
+  const g=groups.get(r.tid);
+  if(g){if(['date','title','speaker','reference_raw'].some(k=>g[k]!==r[k]))throw Error('같은 설교 식별자의 메타데이터가 다릅니다.');g.services.push(r.service);g.sources.push({menu:r.menu,url:r.source_url});}
+  else groups.set(r.tid,{...r,services:[r.service],sources:[{menu:r.menu,url:r.source_url}]});
+ }
+ return [...groups.values()].map(r=>{
+ const ranges=r.reference.status==='ok'?r.reference.ranges:[];
+ const terms=ranges.flatMap(x=>{const b=BOOKS[x.book-1];return b.aliases.flatMap(a=>[a,`${a}${x.chapter}`,`${a}${x.chapter}:${x.start}-${x.end}`]);});
+ return {...r,_text:fold([r.title,r.speaker,r.reference_raw,...terms].join(' ')),_books:new Set(ranges.map(x=>x.book)),_testaments:new Set(ranges.map(x=>BOOKS[x.book-1].testament))};
+});}
+function filter(records,f){
+ const query=(f.query||'').trim();const parsed=normalize(query);const tokens=query.toLocaleLowerCase('ko').split(/\s+/).filter(Boolean).map(fold);
+ if(f.from&&f.to&&f.from>f.to)return [];
+ return records.filter(r=>{
+  if(f.service&&!r.services.includes(f.service)||f.from&&r.date<f.from||f.to&&r.date>f.to)return false;
+  if(f.testament&&!r._testaments.has(f.testament)||f.book&&!r._books.has(Number(f.book)))return false;
+  if(f.chapter&&!r.reference.ranges.some(x=>(!f.book||x.book===Number(f.book))&&x.chapter===Number(f.chapter)))return false;
+  return parsed.status==='ok'?overlaps(r.reference,parsed):tokens.every(t=>r._text.includes(t));
+ }).sort((a,b)=>(a.date.localeCompare(b.date)||Number(a.tid)-Number(b.tid)||a.menu-b.menu)*(f.sort==='asc'?1:-1));
+}
+function csv(records){
+ const cols=[['설교 날짜','date'],['설교자','speaker'],['설교 제목','title'],['성경 본문 (원문)','reference_raw'],['예배 구분',r=>r.services?r.services.join(' · '):r.service],['공식 설교 URL','source_url'],['고유 식별자','id'],['본문 해석 상태',r=>r.reference.status],['최초 수집 시각 (UTC)','first_collected_at'],['내용 갱신 시각 (UTC)','updated_at']];
+ const cell=v=>'"'+String(v??'').replace(/^[\s]*[=+@-]/,s=>"'"+s).replace(/"/g,'""')+'"';
+ return '\ufeff'+[cols.map(c=>cell(c[0])).join(','),...records.map(r=>cols.map(c=>cell(typeof c[1]==='function'?c[1](r):r[c[1]])).join(','))].join('\r\n')+'\r\n';
+}
+function validate(data){
+ if(data?.schema_version!==1||!data.meta||!Array.isArray(data.sermons)||data.meta.total!==data.sermons.length)throw Error('데이터 형식 또는 건수가 올바르지 않습니다.');
+ const ids=new Set();for(const r of data.sermons){
+  if(!r||!Number.isInteger(r.menu)||!/^\d+$/.test(r.tid)||r.id!==`${r.menu}:${r.tid}`||ids.has(r.id)||!SERVICES.includes(r.service)||![57,58,59,61,62].includes(r.menu))throw Error('설교 식별자 검증 실패');
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(r.date)||!r.title||!r.speaker||typeof r.reference_raw!=='string'||r.source_url!==`https://oryun.org/tv/?menu=${r.menu}&mode=view&tid=${r.tid}`)throw Error('설교 메타데이터 검증 실패');
+  const ref=normalize(r.reference_raw);if(ref.status!==r.reference?.status||ref.key!==r.reference?.key||JSON.stringify(ref.ranges)!==JSON.stringify(r.reference.ranges))throw Error('성경 본문 데이터 검증 실패');ids.add(r.id);
+ }
+ if(data.meta.last_success_at!==null&&!Number.isFinite(Date.parse(data.meta.last_success_at)))throw Error('업데이트 시각 검증 실패');
+ return data;
+}
+return {BOOKS,SERVICES,normalize,overlaps,index,filter,csv,validate};
+})();
+</script>
+<script id="archive-collector">
+'use strict';
+globalThis.ArchiveCollector=(()=>{
+ const BASE='https://oryun.org',MENUS={57:'주일예배',58:'수요예배',59:'금요기도회',61:'주일예배(부목사)',62:'외부강사'};
+ const TERMS_HASH='409fb91ce256dab3ea30c0bf2c79cb47ef0ff7efd42029fa7f39636691e8c5e5';
+ const clean=s=>s.replace(/\s+/g,' ').trim();
+ const stable=v=>JSON.stringify(v,(_,x)=>x&&typeof x==='object'&&!Array.isArray(x)?Object.fromEntries(Object.keys(x).sort().map(k=>[k,x[k]])):x);
+ async function digest(v){return [...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(stable(v))))].map(x=>x.toString(16).padStart(2,'0')).join('');}
+ const content=r=>Object.fromEntries(['date','title','speaker','reference_raw','service'].map(k=>[k,r[k]]));
+ const listURL=(menu,page=1)=>`${BASE}/tv/?menu=${menu}&page=${page}&tv_type=photo`;
+ const sourceURL=(menu,tid)=>`${BASE}/tv/?menu=${menu}&mode=view&tid=${tid}`;
+ const documentOf=html=>new DOMParser().parseFromString(html,'text/html');
+ const required=(root,selector)=>{const x=root.querySelector(selector);if(!x)throw Error('공식 사이트의 목록/상세 구조가 변경되었습니다.');return x;};
+ function robotsPolicy(raw){
+  if(!/^\s*(?:#.*\n\s*)*user-agent\s*:/i.test(raw))throw Error('robots.txt를 확인할 수 없습니다.');
+  const groups=[];let group=null,directives=false;
+  for(let line of raw.split(/\r?\n/)){line=line.replace(/#.*/,'').trim();if(!line)continue;const colon=line.indexOf(':');if(colon<0)throw Error('지원하지 않는 robots.txt 형식입니다.');const key=line.slice(0,colon).trim().toLowerCase(),value=line.slice(colon+1).trim();
+   if(key==='user-agent'){if(!group||directives){group={agents:[],rules:[],delay:1.2,unknown:false};groups.push(group);directives=false;}group.agents.push(value.toLowerCase());}
+   else if(key==='sitemap')continue;
+   else{if(!group)throw Error('robots.txt 그룹이 올바르지 않습니다.');directives=true;
+    if(key==='allow'||key==='disallow'){if(value)group.rules.push({allow:key==='allow',path:value});}
+    else if(key==='crawl-delay'){if(!/^\d+(?:\.\d+)?$/.test(value))throw Error('지원하지 않는 요청 간격입니다.');group.delay=Math.max(group.delay,Number(value));}
+    else if(key==='request-rate'){const m=value.match(/^(\d+)\/(\d+)$/);if(!m||!Number(m[1]))throw Error('지원하지 않는 요청 빈도입니다.');group.delay=Math.max(group.delay,Number(m[2])/Number(m[1]));}
+    else group.unknown=true;
+   }
+  }
+  let selected=groups.filter(g=>g.agents.some(a=>a!=='*'&&'oryunsermonarchive'.startsWith(a)));if(!selected.length)selected=groups.filter(g=>g.agents.includes('*'));
+  if(selected.some(g=>g.unknown))throw Error('robots.txt의 새 지시를 운영자가 확인해야 합니다.');
+  const delay=Math.max(1.2,...selected.map(g=>g.delay));if(delay>120)throw Error('사이트의 요청 간격 정책에 따라 불러오기를 중단했습니다.');
+  return {delay,allows(url){const u=new URL(url),target=u.pathname+u.search;let best=null;for(const g of selected)for(const r of g.rules){const source=r.path.replace(/[.+?^${}()|[\]\\]/g,'\\$&').replace(/\*/g,'.*').replace(/\\\$$/,'$');if(new RegExp('^'+source).test(target)&&(!best||r.path.length>best.path.length||r.path.length===best.path.length&&r.allow))best=r;}return !best||best.allow;}};
+ }
+ function termsText(html){const d=documentOf(html);d.querySelectorAll('script,style').forEach(x=>x.remove());const w=d.createTreeWalker(d,4),parts=[];let n;while(n=w.nextNode()){const t=n.nodeValue.trim();if(t)parts.push(t);}const text=clean(parts.join(' ')),start=text.indexOf('제1조 (약관의 목적과 동의)'),endText='2022년 5월 10일 부터 시행 됩니다.',end=text.indexOf(endText);if(start<0||end<start)throw Error('공식 사이트 이용약관이 변경되어 확인이 필요합니다.');return text.slice(start,end+endText.length);}
+ function parseDetail(html,allowMissing=false){
+  const d=documentOf(html),box=required(d,'.title_Box'),title=clean(required(box,'.title[data="sns"]').textContent),date=clean(required(box,'.date').textContent).match(/\[(\d{4}-\d{2}-\d{2})\]/),speaker=clean(required(box,'.vname').textContent).replace(/\s+(목사|집사|장로|전도사|선교사|교수|강도사|권사|성도)$/,'');
+  const refs=[...d.querySelectorAll('div.title')].filter(x=>x.querySelector('.sky')&&clean(x.querySelector('.sky').textContent)==='본문말씀');
+  const blank=[...d.querySelectorAll('.list_Box > .title')];if(!date||!title||!speaker||refs.length>1||!refs.length&&!allowMissing&&!(blank.length===1&&!clean(blank[0].textContent)))throw Error('상세 페이지의 메타데이터를 확인할 수 없습니다.');
+  return {title,date:date[1],speaker,reference_raw:refs.length?clean(refs[0].textContent).replace(/^본문말씀\s*:\s*/,''):''};
+ }
+ async function parseListing(html,menu,page=1,getDetail){
+  const d=documentOf(html),container=required(d,'.PhotoList'),paging=clean(required(d,'.paging .m_num').textContent).match(/\/\s*(\d+)$/),active=required(d,'.paging .post_page').getAttribute('value');
+  if(!paging||active!==String(page))throw Error('공식 목록의 페이지 번호를 확인할 수 없습니다.');const pages=Number(paging[1]);if(!(page>=1&&page<=pages&&pages<=2000))throw Error('목록의 페이지 수가 올바르지 않습니다.');
+  const records=[];
+  for(const a of container.querySelectorAll('a[href*="tid="]')){
+   const u=new URL(a.getAttribute('href'),BASE),q=u.searchParams,tid=q.get('tid');if(u.origin!==BASE||q.get('menu')!==String(menu)||!/^\d+$/.test(tid||''))throw Error('공식 설교 식별자를 확인할 수 없습니다.');
+   const title=clean(required(a,'.cont.tit').textContent),text=clean(required(a,'.cont.text').textContent),date=clean(required(a,'.cont.date').textContent);let reference_raw,speaker;
+   if(text.split('|').length===2)[reference_raw,speaker]=text.split('|').map(clean);
+   else if(!text.includes('|')&&getDetail){const detail=parseDetail(await getDetail(sourceURL(menu,tid)),true);if(detail.title!==title||detail.date!==date||detail.speaker!==text)throw Error('목록과 상세 정보가 서로 다릅니다.');({reference_raw,speaker}=detail);}
+   else throw Error('본문·설교자 표기가 변경되었습니다.');
+   if(!title||!speaker||!/^\d{4}-\d{2}-\d{2}$/.test(date)||!Number.isFinite(Date.parse(date))||new Date(date).toISOString().slice(0,10)!==date)throw Error('필수 설교 정보가 올바르지 않습니다.');
+   const r={id:`${menu}:${tid}`,menu,tid,date,title,speaker,reference_raw,service:MENUS[menu],source_url:sourceURL(menu,tid),reference:Archive.normalize(reference_raw)};r.content_hash=await digest(content(r));records.push(r);
+  }
+  if(!records.length||records.length>16||page<pages&&records.length!==16)throw Error('목록 건수가 비정상적이어서 기존 데이터를 유지합니다.');return {records,pages};
+ }
+ async function collect(previous,{signal,onProgress=()=>{},fetcher=fetch,wait,full=false}={}){
+  Archive.validate(previous);Archive.index(previous.sermons);
+  const sleep=wait||((ms)=>new Promise((resolve,reject)=>{if(signal?.aborted){reject(new DOMException('취소됨','AbortError'));return;}const abort=()=>{clearTimeout(timer);reject(new DOMException('취소됨','AbortError'));};const timer=setTimeout(()=>{signal?.removeEventListener('abort',abort);resolve();},ms);signal?.addEventListener('abort',abort,{once:true});}));
+  let policy=null,last=-Infinity,requests=0;
+  async function get(url,robots=false){
+   const u=new URL(url);if(u.origin!==BASE||!['/robots.txt','/tv/','/about/'].includes(u.pathname))throw Error('공식 메타데이터 주소만 요청할 수 있습니다.');
+   if(!robots&&(!policy||!policy.allows(url)))throw Error('공식 사이트의 robots.txt에 따라 불러오기를 중단했습니다.');
+   for(let attempt=0;attempt<4;attempt++){
+    signal?.throwIfAborted();await sleep(Math.max(0,last+(policy?.delay||1.2)*1000-performance.now()));last=performance.now();requests++;
+    const controller=new AbortController(),abort=()=>controller.abort(signal?.reason);signal?.addEventListener('abort',abort,{once:true});const timeout=setTimeout(()=>controller.abort(new DOMException('공식 사이트 응답 시간 초과','TimeoutError')),40000);
+    let response;
+    try{response=await fetcher(url,{credentials:'omit',cache:'no-store',redirect:'error',referrerPolicy:'no-referrer',signal:controller.signal});if(response.ok)return await response.text();}
+    catch(e){signal?.throwIfAborted();if(attempt===3)throw Error('공식 사이트에 연결할 수 없습니다. 연결 상태 또는 브라우저 접근 허용 정책을 확인해 주세요.');await sleep(2000*2**attempt);continue;}
+    finally{clearTimeout(timeout);signal?.removeEventListener('abort',abort);}
+    if(response.status===401||response.status===403)throw Error('공식 사이트의 접근 제한으로 불러오기를 중단했습니다.');
+    if(response.status===429||response.status>=500){if(attempt===3)throw Error(`공식 사이트 응답 오류 (HTTP ${response.status})`);const retry=response.headers.get('Retry-After')||'';const seconds=Math.max(2**(attempt+1),/^\d+$/.test(retry)?Number(retry):0);if(seconds>120)throw Error('공식 사이트의 요청 제한에 따라 나중에 다시 시도해 주세요.');await sleep(seconds*1000);continue;}
+    if(!response.ok)throw Error(`공식 사이트 응답 오류 (HTTP ${response.status})`);
+    return await response.text();
+   }
+  }
+  onProgress('공식 사이트 수집 정책을 확인하고 있습니다.');const robots=await get(BASE+'/robots.txt',true);policy=robotsPolicy(robots);const terms=termsText(await get(BASE+'/about/?menu=312'));if(await digest(terms)!==TERMS_HASH)throw Error('이용약관이 변경되어 운영자의 검토가 필요합니다.');
+  const stamp=new Date().toISOString(),old=new Map(previous.sermons.map(r=>[r.id,r])),merged=new Map(previous.sermons.map(r=>[r.id,{...r}])),observedLogical=new Map(),menus={},stats={added:0,changed:0,observed:0,normalization_failed:0};
+  full=full||!previous.meta.full_collected_at;
+  for(const key of Object.keys(MENUS)){
+   const menu=Number(key);onProgress(`${MENUS[menu]} 최신 목록을 확인하고 있습니다.`);const first=await parseListing(await get(listURL(menu)),menu,1,get),before=previous.meta.menus?.[key]||{},pages=first.pages;
+   if(before.total_pages&&pages<before.total_pages-Math.max(1,Math.floor(before.total_pages*.1)))throw Error('공식 목록의 페이지 수가 급감하여 기존 데이터를 유지합니다.');
+   const target=new Set(Array.from({length:full?pages:Math.min(pages,2)},(_,i)=>i+1));let cursor=Math.min(Math.max(1,before.audit_cursor??3),pages);
+   if(!full)for(let n=0;n<Math.min(2,pages);n++){target.add(cursor);cursor=cursor%pages+1;}
+   const queue=[...target].sort((a,b)=>a-b),observed=new Map(),signatures=new Set();let frontier=Math.min(pages,2);
+   for(const page of queue){
+    signal?.throwIfAborted();onProgress(`${MENUS[menu]} · ${page}/${pages} 페이지 확인 중`);const listing=page===1?first:await parseListing(await get(listURL(menu,page)),menu,page,get);if(listing.pages!==pages)throw Error('수집 도중 목록 페이지 수가 변경되었습니다. 다시 시도해 주세요.');
+    const signature=listing.records.map(r=>r.id).join(',');if(signatures.has(signature))throw Error('서로 다른 페이지가 같은 목록을 반환했습니다.');signatures.add(signature);
+    if(!full&&page===frontier&&!listing.records.some(r=>old.has(r.id))&&page<pages){frontier++;if(!queue.includes(frontier))queue.push(frontier);}
+    for(const r of listing.records){if(observed.has(r.id)&&observed.get(r.id).content_hash!==r.content_hash)throw Error('중복 설교의 메타데이터가 서로 다릅니다.');observed.set(r.id,r);}
+   }
+   const detail=parseDetail(await get(first.records[0].source_url),!first.records[0].reference_raw);if(Object.keys(detail).some(k=>detail[k]!==first.records[0][k]))throw Error('목록과 상세 정보가 서로 다릅니다.');
+   const oldCount=previous.sermons.filter(r=>r.menu===menu).length;if(full&&oldCount&&observed.size<oldCount*.9)throw Error('전체 설교 건수가 급감하여 기존 데이터를 유지합니다.');
+   for(const [id,r] of observed){
+    const core=Object.fromEntries(['date','title','speaker','reference_raw','reference'].map(k=>[k,r[k]]));if(observedLogical.has(r.tid)&&stable(observedLogical.get(r.tid))!==stable(core))throw Error('같은 설교의 분류별 메타데이터가 서로 다릅니다.');observedLogical.set(r.tid,core);
+    const existing=old.get(id),changed=existing&&existing.content_hash!==r.content_hash;r.first_collected_at=existing?.first_collected_at||stamp;r.updated_at=!existing||changed?stamp:existing.updated_at;r.last_seen_at=stamp;merged.set(id,r);stats.added+=!existing?1:0;stats.changed+=changed?1:0;stats.observed++;
+   }
+   menus[key]={total_pages:pages,audit_cursor:full?1:cursor,observed_count:observed.size,checked_pages:[...queue].sort((a,b)=>a-b),checked_at:stamp};
+  }
+  for(const r of merged.values())if(observedLogical.has(r.tid)){Object.assign(r,observedLogical.get(r.tid));const h=await digest(content(r));if(h!==r.content_hash){r.content_hash=h;r.updated_at=stamp;}}
+  const sermons=[...merged.values()].sort((a,b)=>b.date.localeCompare(a.date)||Number(b.tid)-Number(a.tid)||b.menu-a.menu);stats.normalization_failed=sermons.filter(r=>r.reference.status!=='ok').length;
+  const completed=new Date().toISOString(),result={schema_version:1,meta:{last_success_at:completed,full_collected_at:full?completed:previous.meta.full_collected_at,total:sermons.length,unique_total:new Set(sermons.map(r=>r.tid)).size,content_version:await digest(sermons.map(r=>[r.id,r.content_hash])),mode:full?'browser-full':'browser-incremental',menus,policy:{checked_at:stamp,robots_url:BASE+'/robots.txt',robots_hash:await digest(robots),terms_url:BASE+'/about/?menu=312',terms_hash:TERMS_HASH},stats,source:BASE,normalizer_version:1},sermons};
+  Archive.validate(result);Archive.index(result.sermons);signal?.throwIfAborted();return result;
+ }
+ return {collect,parseListing,parseDetail,robotsPolicy,termsText,digest};
+})();
+</script>
+
+<script>
+'use strict';
+(()=>{
+ const $=id=>document.getElementById(id),A=Archive,PAGE_SIZE=30;
+ const CACHE_KEY='oryun-sermon-archive:manual:v1';
+ let data=null,records=[],filtered=[],page=1,service='',loading=false,collecting=false,controller=null,compareId=null,compareLimit=20;
+ const controls=['search','testament','book','chapter','dateFrom','dateTo','sort'];
+ const number=n=>new Intl.NumberFormat('ko-KR').format(n);
+ function notice(text,error=false){$('notice').textContent=text;$('notice').classList.toggle('error',error);$('notice').hidden=!text;}
+ function el(tag,text,cls){const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e;}
+ function external(r){const a=el('a',r.title,'sermon-title');a.href=r.source_url;a.target='_blank';a.rel='noopener noreferrer';return a;}
+ function updateBooks(){const val=$('book').value;$('book').replaceChildren(new Option('성경 66권 전체',''));for(const b of A.BOOKS.filter(b=>!$('testament').value||b.testament===$('testament').value))$('book').add(new Option(b.name,String(b.id)));$('book').value=[...$('book').options].some(o=>o.value===val)?val:'';updateChapter();}
+ function updateChapter(){const b=A.BOOKS.find(b=>b.id===Number($('book').value));$('chapter').disabled=!b;if(!b)$('chapter').value='';else{$('chapter').max=b.verses.length;if(Number($('chapter').value)>b.verses.length)$('chapter').value='';}}
+ function filters(){return {query:$('search').value,service,testament:$('testament').value,book:$('book').value,chapter:$('chapter').value,from:$('dateFrom').value,to:$('dateTo').value,sort:$('sort').value};}
+ function apply(reset=true){if(reset)page=1;const f=filters();let err=f.from&&f.to&&f.from>f.to?'시작 날짜는 종료 날짜보다 늦을 수 없습니다.':'';if(!$('chapter').checkValidity())err='선택한 성경의 유효한 장 번호를 입력해 주세요.';$('rangeError').textContent=err;$('rangeError').hidden=!err;filtered=err?[]:A.filter(records,f);$('clearSearch').hidden=!f.query;render();}
+ function render(){
+  const pages=Math.max(1,Math.ceil(filtered.length/PAGE_SIZE));page=Math.min(page,pages);$('resultCount').textContent=number(filtered.length);$('csv').disabled=!filtered.length;
+  const fragment=document.createDocumentFragment();for(const r of filtered.slice((page-1)*PAGE_SIZE,page*PAGE_SIZE)){
+   const tr=el('tr');tr.dataset.id=r.id;const day=el('td',r.date,'date datecell'),title=el('td',undefined,'titlecell');title.append(external(r));const speaker=el('td',r.speaker,'speakercell'),ref=el('td',r.reference_raw||'본문 미기재','ref refcell');
+   if(r.reference.status!=='ok')ref.append(el('span','본문 해석 불가 · 원문 보존','unparsed'));
+   const type=el('td',undefined,'servicecell');for(const service of r.services)type.append(el('span',service,'badge'));const action=el('td',undefined,'actioncell'),btn=el('button','본문 비교','compare');btn.dataset.compare=r.id;btn.disabled=r.reference.status!=='ok';btn.setAttribute('aria-label',`${r.title}의 동일·겹치는 본문 비교`);action.append(btn);tr.append(day,title,speaker,ref,type,action);fragment.append(tr);
+  }$('rows').replaceChildren(fragment);$('state').hidden=filtered.length>0;
+  if(data&&!filtered.length){$('state').replaceChildren(el('strong',records.length?'검색 결과가 없습니다.':'아직 수집된 설교가 없습니다.'),el('span',records.length?'검색어를 바꾸거나 필터를 초기화해 보세요.':'최초 전체 수집이 완료되면 이곳에 표시됩니다.'));}
+  $('pager').hidden=!filtered.length;$('pageLabel').textContent=`${number(page)} / ${number(pages)} 페이지 · 한 페이지 ${PAGE_SIZE}편`;$('prev').disabled=page===1;$('next').disabled=page===pages;$('tableWrap').setAttribute('aria-busy','false');
+ }
+ function showData(incoming,local=false){
+  const indexed=A.index(incoming.sermons);data=incoming;records=indexed;$('totalCount').textContent=number(records.length);
+  $('updated').textContent=data.meta.last_success_at?new Intl.DateTimeFormat('ko-KR',{timeZone:'Asia/Seoul',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}).format(new Date(data.meta.last_success_at))+' KST':'아직 확인 전';
+  if(data.meta.last_success_at)$('updated').dateTime=data.meta.last_success_at;
+  $('scopeNote').textContent=local==='memory'?'이번 방문에서 불러온 목록입니다. 브라우저 저장은 제한되어 있습니다.':local?'이 브라우저에 저장된 최신 목록을 사용 중입니다.':'기본 아카이브를 사용 중입니다. 버튼을 눌러 최신 목록을 가져오세요.';
+  apply(false);if($('compareDialog').open)renderCompare();
+ }
+ function cachedData(){try{const raw=localStorage.getItem(CACHE_KEY);if(!raw)return null;const cached=A.validate(JSON.parse(raw));A.index(cached.sermons);return cached;}catch{return null;}}
+ async function load(manual=false){
+  if(loading||collecting)return;loading=true;$('refresh').disabled=true;$('crawl').disabled=true;
+  const cached=cachedData();if(cached&&!data)showData(cached,true);
+  try{const response=await fetch(`./sermons.json?t=${Date.now()}`,{cache:'no-store',signal:AbortSignal.timeout(20000)});if(!response.ok)throw Error(`HTTP ${response.status}`);const published=A.validate(await response.json());
+   const useCache=cached&&Date.parse(cached.meta.last_success_at)>=Date.parse(published.meta.last_success_at||0);showData(useCache?cached:published,Boolean(useCache));
+   notice(manual?'저장된 설교 목록을 다시 열었습니다. 최신 설교 확인은 위의 불러오기 버튼을 눌러 주세요.':'');
+  }catch(e){if(cached){showData(cached,true);notice('기본 목록에 연결할 수 없어 이 브라우저에 저장된 목록을 사용합니다.');}else{notice(`${data?'저장된 목록 확인에 실패하여 기존 화면을 유지합니다.':'설교 목록을 열지 못했습니다.'} ${e.message}`,true);if(!data){$('state').replaceChildren(el('strong','설교 목록을 열 수 없습니다.'),el('span','연결을 확인한 뒤 목록 다시 열기를 눌러 주세요.'));$('tableWrap').setAttribute('aria-busy','false');}}}
+  finally{loading=false;$('refresh').disabled=false;$('crawl').disabled=!data;}
+ }
+ async function crawl(){
+  if(loading||collecting||!data)return;collecting=true;controller=new AbortController();$('crawl').disabled=true;$('fullScan').disabled=true;$('refresh').disabled=true;$('cancelCrawl').hidden=false;$('crawl').textContent='목록 불러오는 중…';
+  try{
+   const next=await ArchiveCollector.collect(data,{signal:controller.signal,full:$('fullScan').checked,onProgress:text=>notice(text)});
+   let stored=true;try{localStorage.setItem(CACHE_KEY,JSON.stringify(next));}catch{stored=false;}
+   showData(next,stored?true:'memory');const stats=next.meta.stats;
+   notice(`설교 목록을 불러왔습니다. 새 항목 ${number(stats.added)}건 · 수정 ${number(stats.changed)}건. ${stored?'이 브라우저에 저장했습니다.':'현재 화면에 반영했지만 브라우저 저장 공간 부족으로 저장하지 못했습니다.'}`);
+  }catch(e){notice(e.name==='AbortError'?'불러오기를 취소했습니다. 기존 목록을 유지합니다.':`${e.message} 기존 목록을 유지합니다.`,e.name!=='AbortError');}
+  finally{collecting=false;controller=null;$('crawl').disabled=false;$('fullScan').disabled=false;$('refresh').disabled=false;$('cancelCrawl').hidden=true;$('crawl').textContent='설교 목록 불러오기 ↻';}
+ }
+ function renderCompare(){
+  const base=records.find(r=>r.id===compareId);if(!base){$('compareDialog').close();return;}
+  $('baseReference').replaceChildren(el('strong',base.reference_raw),el('div',`${base.date} · ${base.speaker} · ${base.title}`));const mode=document.querySelector('input[name=compareMode]:checked').value;
+  const matches=records.filter(r=>r.id!==base.id&&r.reference.status==='ok'&&(mode==='exact'?r.reference.key===base.reference.key:r.reference.key!==base.reference.key&&A.overlaps(r.reference,base.reference)));
+  $('compareCount').textContent=`${mode==='exact'?'정확히 동일한':'일부 또는 전체가 겹치는'} 본문의 설교 ${number(matches.length)}편 (기준 설교 제외)`;
+  const frag=document.createDocumentFragment();for(const r of matches.slice(0,compareLimit)){const article=el('article');article.append(external(r),el('p',`${r.date} · ${r.speaker} · ${r.service}`),el('span',r.reference_raw,'ref'),el('span',mode==='exact'?'동일 범위':'겹치는 범위','relation'));frag.append(article);}
+  if(!matches.length)frag.append(el('p','조건에 맞는 다른 설교가 없습니다.'));$('compareResults').replaceChildren(frag);$('moreCompare').hidden=compareLimit>=matches.length;
+ }
+ for(const name of ['',...A.SERVICES]){const b=el('button',name||'전체 설교','type');b.setAttribute('aria-pressed',String(!name));b.dataset.service=name;$('services').append(b);}
+ $('services').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;service=b.dataset.service;for(const x of $('services').children)x.setAttribute('aria-pressed',String(x===b));apply();});
+ let timer;for(const id of controls)$(id).addEventListener(['search','chapter','dateFrom','dateTo'].includes(id)?'input':'change',()=>{if(id==='testament')updateBooks();if(id==='book')updateChapter();clearTimeout(timer);if(id==='search')timer=setTimeout(()=>apply(),130);else apply();});
+ $('clearSearch').onclick=()=>{$('search').value='';apply();$('search').focus();};
+ $('reset').onclick=()=>{for(const id of controls)$(id).value=id==='sort'?'desc':'';service='';for(const b of $('services').children)b.setAttribute('aria-pressed',String(!b.dataset.service));updateBooks();apply();};
+ $('prev').onclick=()=>{page--;render();};$('next').onclick=()=>{page++;render();};
+ $('crawl').onclick=crawl;$('cancelCrawl').onclick=()=>controller?.abort();$('refresh').onclick=()=>load(true);$('csv').onclick=()=>{const url=URL.createObjectURL(new Blob([A.csv(filtered)],{type:'text/csv;charset=utf-8;'})),a=el('a');a.href=url;a.download=`oryun-sermons-${new Date().toISOString().slice(0,10)}.csv`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
+ $('rows').addEventListener('click',e=>{const b=e.target.closest('[data-compare]');if(!b)return;compareId=b.dataset.compare;compareLimit=20;renderCompare();$('compareDialog').showModal();});
+ $('closeDialog').onclick=()=>$('compareDialog').close();for(const radio of document.querySelectorAll('[name=compareMode]'))radio.onchange=()=>{compareLimit=20;renderCompare();};$('moreCompare').onclick=()=>{compareLimit+=20;renderCompare();};
+ updateBooks();load();
+})();
+</script>
+</body>
+</html>
