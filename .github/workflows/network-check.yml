@@ -1,0 +1,18 @@
+name: Diagnose official site connection
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  connection:
+    strategy:
+      fail-fast: false
+      matrix:
+        runner: [ubuntu-latest, ubuntu-24.04-arm, macos-latest]
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 5
+    steps:
+      - name: Resolve and request only robots.txt
+        run: |
+          python3 -c "import socket; print(socket.getaddrinfo('oryun.org', 443))"
+          curl --silent --show-error --connect-timeout 10 --max-time 20 --write-out '\nHTTP %{http_code} remote=%{remote_ip} time=%{time_total}\n' https://oryun.org/robots.txt
