@@ -25,7 +25,7 @@ function detail(r){return `<div class="title_Box"><div class="date">[${r.date}]<
     if(u.pathname==='/robots.txt')return route.fulfill({body:mode==='robots'?'User-agent: *\nDisallow: /tv/':'User-agent: *'});
     if(u.pathname==='/about/')return route.fulfill({contentType:'text/html',body:`<p>${mode==='terms'?policyText.replace('테스트용','변경된'):policyText}</p>`});
     const menu=Number(u.searchParams.get('menu')),list=rows.get(menu),page=Number(u.searchParams.get('page')||1);
-    if(u.searchParams.has('tid'))return route.fulfill({contentType:'text/html',body:detail(list.find(r=>r.tid===u.searchParams.get('tid')))});
+    if(u.searchParams.has('tid'))return route.fulfill({contentType:'text/html',body:detail(list.find(r=>r.tid===u.searchParams.get('tid'))).replace(mode==='mismatch'?'버튼으로 가져온 새 설교 수정':'__never__','상세 정보 불일치')});
     if(mode==='structure')return route.fulfill({contentType:'text/html',body:'<html>점검 중</html>'});
     return route.fulfill({contentType:'text/html',body:listing(menu,list.slice((page-1)*16,page*16),page,mode==='drop'?1:original.meta.menus[String(menu)].total_pages)});
    });
@@ -33,17 +33,29 @@ function detail(r){return `<div class="title_Box"><div class="date">[${r.date}]<
    // Speed up intentional rate-limit sleeps in tests only; production default is 1.2 seconds.
    await p.evaluate(()=>{const collect=ArchiveCollector.collect;ArchiveCollector.collect=(data,options)=>collect(data,{...options,wait:async()=>{}});});
    assert.equal(requests,0);await p.clock.runFor(600000);assert.equal(requests,0);checks++;
+   const firstRequests=requests;
    await p.locator('#search').fill('버튼으로 가져온');await p.clock.runFor(200);await p.locator('#crawl').click();await p.waitForFunction(()=>document.querySelector('#cancelCrawl').hidden);
    assert.equal(await p.locator('#totalCount').textContent(),'1,371');assert.equal(await p.locator('#rows tr').count(),1);assert.match(await p.locator('#notice').textContent(),/새 항목 1건 · 수정 1건/);checks+=3;
+   assert.equal(requests-firstRequests,9,'new and corrected categories require only one detail each');checks++;
    const cache=await p.evaluate(()=>JSON.parse(localStorage.getItem('oryun-sermon-archive:manual:v1')));assert.equal(cache.meta.total,1459);checks++;
    const python=path.join(root,'.venv/bin/python');const verified=spawnSync(python,['-c','import sys,json;from scraper import validate_archive;validate_archive(json.load(sys.stdin))'],{cwd:root,input:JSON.stringify(cache),encoding:'utf8'});assert.equal(verified.status,0,verified.stderr);checks++;
    await p.reload();await p.waitForSelector('#rows tr');assert.equal(await p.locator('#totalCount').textContent(),'1,371');assert.match(await p.locator('#scopeNote').textContent(),/브라우저에 저장/);checks+=2;
    await p.evaluate(()=>{const collect=ArchiveCollector.collect;ArchiveCollector.collect=(data,options)=>collect(data,{...options,wait:async()=>{}});});
+   rows.get(58)[20].title='과거 제목 수정 테스트';
+   const unchangedRequests=requests;await p.locator('#crawl').click();await p.waitForFunction(()=>document.querySelector('#cancelCrawl').hidden);
+   assert.equal(requests-unchangedRequests,7,'unchanged latest scan must make exactly seven requests');
+   const latest=await p.evaluate(()=>JSON.parse(localStorage.getItem('oryun-sermon-archive:manual:v1')));
+   assert.ok(Object.values(latest.meta.menus).every(m=>JSON.stringify(m.checked_pages)==='[1]'));
+   assert.ok(!latest.sermons.some(r=>r.title==='과거 제목 수정 테스트'));checks+=3;
+   const extra=Array.from({length:32},(_,i)=>({...rows.get(57)[0],tid:String(999990000+i),title:`장기 미방문 새 설교 ${i}`}));rows.get(57).unshift(...extra);
+   const gapRequests=requests;const gap=await p.evaluate(async previous=>ArchiveCollector.collect(previous,{wait:async()=>{}}),original);
+   assert.deepEqual(gap.meta.menus['57'].checked_pages,[1,2,3]);assert.equal(gap.meta.stats.added,33);assert.equal(requests-gapRequests,11);checks+=3;rows.get(57).splice(0,32);
    const before=await p.evaluate(()=>localStorage.getItem('oryun-sermon-archive:manual:v1'));
    for(mode of ['denied','robots','terms','structure','drop']){await p.locator('#crawl').click();await p.waitForFunction(()=>document.querySelector('#cancelCrawl').hidden);assert.match(await p.locator('#notice').textContent(),/기존 목록/);assert.equal(await p.evaluate(()=>localStorage.getItem('oryun-sermon-archive:manual:v1')),before);checks+=2;}
+   mode='mismatch';rows.get(57)[0].title='버튼으로 가져온 새 설교 수정';await p.locator('#crawl').click();await p.waitForFunction(()=>document.querySelector('#cancelCrawl').hidden);assert.match(await p.locator('#notice').textContent(),/서로 다릅니다/);assert.equal(await p.evaluate(()=>localStorage.getItem('oryun-sermon-archive:manual:v1')),before);checks+=2;rows.get(57)[0].title='버튼으로 가져온 새 설교';
    mode='hold';await p.locator('#crawl').click();await p.locator('#cancelCrawl').click();await p.waitForFunction(()=>document.querySelector('#cancelCrawl').hidden);assert.match(await p.locator('#notice').textContent(),/취소/);assert.equal(await p.evaluate(()=>localStorage.getItem('oryun-sermon-archive:manual:v1')),before);checks+=2;
    mode='ok';await p.locator('#fullScan').check();await p.locator('#crawl').click();await p.waitForFunction(()=>document.querySelector('#cancelCrawl').hidden);
-   const full=await p.evaluate(()=>JSON.parse(localStorage.getItem('oryun-sermon-archive:manual:v1')));assert.equal(full.meta.mode,'browser-full');assert.equal(full.meta.menus['58'].checked_pages.length,40);checks+=2;
+   const full=await p.evaluate(()=>JSON.parse(localStorage.getItem('oryun-sermon-archive:manual:v1')));assert.equal(full.meta.mode,'browser-full');assert.equal(full.meta.menus['58'].checked_pages.length,40);assert.ok(full.sermons.some(r=>r.title==='과거 제목 수정 테스트'));checks+=3;
    const fullBytes=await p.evaluate(()=>localStorage.getItem('oryun-sermon-archive:manual:v1'));await p.locator('#fullScan').uncheck();
    await p.evaluate(()=>Storage.prototype.setItem=function(){throw new DOMException('full','QuotaExceededError');});await p.locator('#crawl').click();await p.waitForFunction(()=>document.querySelector('#cancelCrawl').hidden);
    assert.match(await p.locator('#notice').textContent(),/저장하지 못했습니다/);assert.match(await p.locator('#scopeNote').textContent(),/이번 방문/);assert.equal(await p.evaluate(()=>localStorage.getItem('oryun-sermon-archive:manual:v1')),fullBytes);checks+=3;

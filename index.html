@@ -21,7 +21,7 @@
 <div class="intro"><div><p class="eyebrow">EXPLORE THE WORD</p><h1>말씀을 찾고, 은혜를 이어가세요.</h1><p>흩어져 있던 설교를 한곳에서. 설교자, 제목, 성경 본문으로 찾아보세요.</p></div><div class="archive-count"><strong id="totalCount">—</strong><span>편의 설교 아카이브</span></div></div>
 <div class="searchbox"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10.5" cy="10.5" r="7.5"/><path d="m16 16 5 5"/></svg><input type="search" id="search" aria-label="설교자, 설교 제목, 성경 본문 통합검색" placeholder="설교자, 설교 제목 또는 성경 본문 검색" autocomplete="off"><button id="clearSearch" aria-label="검색어 지우기" hidden>×</button></div>
 <p class="searchhint">예: 주경훈 · 믿음 · 요 8:1-11 &nbsp; | &nbsp; 성경 본문 범위 검색은 서로 겹치는 설교를 찾습니다.</p>
-<div class="fetch-tools"><div class="fetch-actions"><button id="crawl" class="button primary" disabled>설교 목록 불러오기 ↻</button><button id="cancelCrawl" class="button" hidden>취소</button><label><input type="checkbox" id="fullScan"> 과거 전체도 확인</label></div><p id="scopeNote" class="scope-note">버튼을 누르면 공식 홈페이지에서 최신 목록을 가져옵니다.</p></div>
+<div class="fetch-tools"><div class="fetch-actions"><button id="crawl" class="button primary" disabled>설교 목록 불러오기 ↻</button><button id="cancelCrawl" class="button" hidden>취소</button><label><input type="checkbox" id="fullScan"> 과거 전체도 확인 <span class="scan-hint">(느림)</span></label></div><p id="scopeNote" class="scope-note">최신 목록을 빠르게 확인합니다. 과거 수정 확인은 전체 확인을 선택하세요.</p></div>
 <div id="notice" role="status" hidden></div>
 <section class="panel" aria-label="설교 필터"><div class="types" id="services" role="group" aria-label="예배 유형"></div><div class="filters">
 <div class="field"><label for="testament">성경 구분</label><select id="testament"><option value="">구약 · 신약 전체</option value="OT">구약성경</option><option value="NT">신약성경</option></select></div>
@@ -147,7 +147,7 @@ globalThis.ArchiveCollector=(()=>{
   const blank=[...d.querySelectorAll('.list_Box > .title')];if(!date||!title||!speaker||refs.length>1||!refs.length&&!allowMissing&&!(blank.length===1&&!clean(blank[0].textContent)))throw Error('상세 페이지의 메타데이터를 확인할 수 없습니다.');
   return {title,date:date[1],speaker,reference_raw:refs.length?clean(refs[0].textContent).replace(/^본문말씀\s*:\s*/,''):''};
  }
- async function parseListing(html,menu,page=1,getDetail){
+ async function parseListing(html,menu,page=1,getDetail,known){
   const d=documentOf(html),container=required(d,'.PhotoList'),paging=clean(required(d,'.paging .m_num').textContent).match(/\/\s*(\d+)$/),active=required(d,'.paging .post_page').getAttribute('value');
   if(!paging||active!==String(page))throw Error('공식 목록의 페이지 번호를 확인할 수 없습니다.');const pages=Number(paging[1]);if(!(page>=1&&page<=pages&&pages<=2000))throw Error('목록의 페이지 수가 올바르지 않습니다.');
   const records=[];
@@ -155,7 +155,7 @@ globalThis.ArchiveCollector=(()=>{
    const u=new URL(a.getAttribute('href'),BASE),q=u.searchParams,tid=q.get('tid');if(u.origin!==BASE||q.get('menu')!==String(menu)||!/^\d+$/.test(tid||''))throw Error('공식 설교 식별자를 확인할 수 없습니다.');
    const title=clean(required(a,'.cont.tit').textContent),text=clean(required(a,'.cont.text').textContent),date=clean(required(a,'.cont.date').textContent);let reference_raw,speaker;
    if(text.split('|').length===2)[reference_raw,speaker]=text.split('|').map(clean);
-   else if(!text.includes('|')&&getDetail){const detail=parseDetail(await getDetail(sourceURL(menu,tid)),true);if(detail.title!==title||detail.date!==date||detail.speaker!==text)throw Error('목록과 상세 정보가 서로 다릅니다.');({reference_raw,speaker}=detail);}
+   else if(!text.includes('|')&&getDetail){const saved=known?.get(`${menu}:${tid}`);const detail=saved&&saved.reference_raw===''&&saved.title===title&&saved.date===date&&saved.speaker===text?{title,date,speaker:text,reference_raw:''}:parseDetail(await getDetail(sourceURL(menu,tid)),true);if(detail.title!==title||detail.date!==date||detail.speaker!==text)throw Error('목록과 상세 정보가 서로 다릅니다.');({reference_raw,speaker}=detail);}
    else throw Error('본문·설교자 표기가 변경되었습니다.');
    if(!title||!speaker||!/^\d{4}-\d{2}-\d{2}$/.test(date)||!Number.isFinite(Date.parse(date))||new Date(date).toISOString().slice(0,10)!==date)throw Error('필수 설교 정보가 올바르지 않습니다.');
    const r={id:`${menu}:${tid}`,menu,tid,date,title,speaker,reference_raw,service:MENUS[menu],source_url:sourceURL(menu,tid),reference:Archive.normalize(reference_raw)};r.content_hash=await digest(content(r));records.push(r);
@@ -185,27 +185,27 @@ globalThis.ArchiveCollector=(()=>{
   onProgress('공식 사이트 수집 정책을 확인하고 있습니다.');const robots=await get(BASE+'/robots.txt',true);policy=robotsPolicy(robots);const terms=termsText(await get(BASE+'/about/?menu=312'));if(await digest(terms)!==TERMS_HASH)throw Error('이용약관이 변경되어 운영자의 검토가 필요합니다.');
   const stamp=new Date().toISOString(),old=new Map(previous.sermons.map(r=>[r.id,r])),merged=new Map(previous.sermons.map(r=>[r.id,{...r}])),observedLogical=new Map(),menus={},stats={added:0,changed:0,observed:0,normalization_failed:0};
   full=full||!previous.meta.full_collected_at;
+  const detailCache=new Map();async function getDetail(url){if(!detailCache.has(url))detailCache.set(url,await get(url));return detailCache.get(url);}
   for(const key of Object.keys(MENUS)){
-   const menu=Number(key);onProgress(`${MENUS[menu]} 최신 목록을 확인하고 있습니다.`);const first=await parseListing(await get(listURL(menu)),menu,1,get),before=previous.meta.menus?.[key]||{},pages=first.pages;
+   const menu=Number(key);onProgress(`${MENUS[menu]} 최신 목록을 확인하고 있습니다.`);const first=await parseListing(await get(listURL(menu)),menu,1,getDetail,full?undefined:old),before=previous.meta.menus?.[key]||{},pages=first.pages;
    if(before.total_pages&&pages<before.total_pages-Math.max(1,Math.floor(before.total_pages*.1)))throw Error('공식 목록의 페이지 수가 급감하여 기존 데이터를 유지합니다.');
-   const target=new Set(Array.from({length:full?pages:Math.min(pages,2)},(_,i)=>i+1));let cursor=Math.min(Math.max(1,before.audit_cursor??3),pages);
-   if(!full)for(let n=0;n<Math.min(2,pages);n++){target.add(cursor);cursor=cursor%pages+1;}
-   const queue=[...target].sort((a,b)=>a-b),observed=new Map(),signatures=new Set();let frontier=Math.min(pages,2);
+   const queue=full?Array.from({length:pages},(_,i)=>i+1):[1],observed=new Map(),signatures=new Set();let frontier=1;
    for(const page of queue){
-    signal?.throwIfAborted();onProgress(`${MENUS[menu]} · ${page}/${pages} 페이지 확인 중`);const listing=page===1?first:await parseListing(await get(listURL(menu,page)),menu,page,get);if(listing.pages!==pages)throw Error('수집 도중 목록 페이지 수가 변경되었습니다. 다시 시도해 주세요.');
+    signal?.throwIfAborted();onProgress(`${MENUS[menu]} · ${page}/${pages} 페이지 확인 중`);const listing=page===1?first:await parseListing(await get(listURL(menu,page)),menu,page,getDetail,full?undefined:old);if(listing.pages!==pages)throw Error('수집 도중 목록 페이지 수가 변경되었습니다. 다시 시도해 주세요.');
     const signature=listing.records.map(r=>r.id).join(',');if(signatures.has(signature))throw Error('서로 다른 페이지가 같은 목록을 반환했습니다.');signatures.add(signature);
     if(!full&&page===frontier&&!listing.records.some(r=>old.has(r.id))&&page<pages){frontier++;if(!queue.includes(frontier))queue.push(frontier);}
     for(const r of listing.records){if(observed.has(r.id)&&observed.get(r.id).content_hash!==r.content_hash)throw Error('중복 설교의 메타데이터가 서로 다릅니다.');observed.set(r.id,r);}
    }
-   const detail=parseDetail(await get(first.records[0].source_url),!first.records[0].reference_raw);if(Object.keys(detail).some(k=>detail[k]!==first.records[0][k]))throw Error('목록과 상세 정보가 서로 다릅니다.');
+   const candidate=full?first.records[0]:[...observed.values()].find(r=>!old.has(r.id)||old.get(r.id).content_hash!==r.content_hash);
+   if(candidate){const detail=parseDetail(await getDetail(candidate.source_url),!candidate.reference_raw);if(Object.keys(detail).some(k=>detail[k]!==candidate[k]))throw Error('목록과 상세 정보가 서로 다릅니다.');}
    const oldCount=previous.sermons.filter(r=>r.menu===menu).length;if(full&&oldCount&&observed.size<oldCount*.9)throw Error('전체 설교 건수가 급감하여 기존 데이터를 유지합니다.');
    for(const [id,r] of observed){
     const core=Object.fromEntries(['date','title','speaker','reference_raw','reference'].map(k=>[k,r[k]]));if(observedLogical.has(r.tid)&&stable(observedLogical.get(r.tid))!==stable(core))throw Error('같은 설교의 분류별 메타데이터가 서로 다릅니다.');observedLogical.set(r.tid,core);
     const existing=old.get(id),changed=existing&&existing.content_hash!==r.content_hash;r.first_collected_at=existing?.first_collected_at||stamp;r.updated_at=!existing||changed?stamp:existing.updated_at;r.last_seen_at=stamp;merged.set(id,r);stats.added+=!existing?1:0;stats.changed+=changed?1:0;stats.observed++;
    }
-   menus[key]={total_pages:pages,audit_cursor:full?1:cursor,observed_count:observed.size,checked_pages:[...queue].sort((a,b)=>a-b),checked_at:stamp};
+   menus[key]={total_pages:pages,audit_cursor:full?1:(before.audit_cursor??1),observed_count:observed.size,checked_pages:[...queue].sort((a,b)=>a-b),checked_at:stamp};
   }
-  for(const r of merged.values())if(observedLogical.has(r.tid)){Object.assign(r,observedLogical.get(r.tid));const h=await digest(content(r));if(h!==r.content_hash){r.content_hash=h;r.updated_at=stamp;}}
+  for(const r of merged.values())if(observedLogical.has(r.tid)){const core=observedLogical.get(r.tid),changed=['date','title','speaker','reference_raw'].some(k=>r[k]!==core[k]);Object.assign(r,core);if(changed){r.content_hash=await digest(content(r));r.updated_at=stamp;}}
   const sermons=[...merged.values()].sort((a,b)=>b.date.localeCompare(a.date)||Number(b.tid)-Number(a.tid)||b.menu-a.menu);stats.normalization_failed=sermons.filter(r=>r.reference.status!=='ok').length;
   const completed=new Date().toISOString(),result={schema_version:1,meta:{last_success_at:completed,full_collected_at:full?completed:previous.meta.full_collected_at,total:sermons.length,unique_total:new Set(sermons.map(r=>r.tid)).size,content_version:await digest(sermons.map(r=>[r.id,r.content_hash])),mode:full?'browser-full':'browser-incremental',menus,policy:{checked_at:stamp,robots_url:BASE+'/robots.txt',robots_hash:await digest(robots),terms_url:BASE+'/about/?menu=312',terms_hash:TERMS_HASH},stats,source:BASE,normalizer_version:1},sermons};
   Archive.validate(result);Archive.index(result.sermons);signal?.throwIfAborted();return result;
