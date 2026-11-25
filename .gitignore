@@ -9,3 +9,5 @@ tests/artifacts/
 node_modules/
 package-lock.json
 _site/
+
+funerals/.crawl-state*
