@@ -29,3 +29,11 @@
 교구 인원·교구 개편/이관 이력과 정확한 장례일이 없으므로 규모 보정, 개편 전후 동일 교구 통합, 실제 소천일 분석은 하지 않습니다. 분석의 시간축은 게시일이며 부분 월/연도에 주의해야 합니다.
 
 Excel 앱에서 직접 열기와 실제 iOS/Android 기기의 터치 검증은 미실시입니다. CSV 바이트와 Chromium/WebKit 반응형 동작으로 확인했습니다.
+
+## 공개 배포 확인
+
+- 공개 주소: https://ssung123-del.github.io/oryun-sermon-archive/funerals/
+- 공개 HTML/JSON의 HTTP 200과 로컬 검증본 바이트 일치 확인. 기존 설교 검색기 HTML도 기존 파일과 일치.
+- 공개 사이트 Chromium/WebKit에서 전체 1,741건, 하남 관련 133건 필터 결과와 화면 동작 확인.
+- 공개 사이트의 실제 브라우저 수집 3요청·약 3.32초, 브라우저 저장 및 재방문 복원 성공, JavaScript 오류 없음.
+- 배포되는 새 파일은 funerals/index.html과 funerals/notices.json뿐이며 GitHub 수집 자동화는 추가하지 않음.
