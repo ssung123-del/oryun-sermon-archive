@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f5f4ef"><title>설교 연구실 | Sermon Desk</title>
+<style>
+:root{--paper:#f5f4ef;--white:#fff;--ink:#20352f;--muted:#656e66;--line:#dddeda;--accent:#244b3d;--soft:#e8eee7;--r:16px}*{box-sizing:border-box}body{margin:0;background:var(--paper);font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',sans-serif;color:var(--ink);font-size:15px;line-height:1.65}button,input,textarea,select{font:inherit;color:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #7ca88b;outline-offset:2px}button{border:1px solid var(--line);background:#fff;border-radius:10px;padding:9px 14px;font-weight:650}button:hover{border-color:var(--accent)}button.primary{background:var(--accent);color:white;border-color:var(--accent)}button.ghost{background:transparent}header{border-bottom:1px solid var(--line)}.shell{max-width:1260px;margin:0 auto;padding:0 26px}.mast{display:flex;align-items:center;justify-content:space-between;padding-top:18px;padding-bottom:18px;gap:14px}.logo{display:flex;align-items:center;gap:12px}.mark{width:38px;height:38px;background:var(--accent);color:#fff;border-radius:11px;display:grid;place-items:center;font-size:23px;font-family:Georgia,serif}.brand{font-size:18px;font-weight:800;letter-spacing:-.04em;line-height:1.3}.en{font-size:10px;letter-spacing:.19em;color:var(--muted);font-weight:700}.local{font-size:12px;color:var(--muted);white-space:nowrap}.intro{padding-top:35px;padding-bottom:24px;display:flex;justify-content:space-between;align-items:flex-end;gap:20px}.eyebrow{font-size:11px;letter-spacing:.16em;font-weight:800;color:#537566}.intro h1{font-weight:800;letter-spacing:-.06em;font-size:clamp(26px,4vw,38px);line-height:1.25;margin:6px 0}.intro p{margin:5px 0;color:var(--muted);font-size:14px}.steps{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;margin-bottom:20px}.step{display:flex;align-items:center;gap:8px;border-bottom:2px solid var(--line);padding:8px 2px 12px;font-weight:700;font-size:13px}.step span{font:700 11px ui-monospace,monospace;color:#597466}.layout{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:22px;align-items:start;padding-bottom:40px}.left{min-width:0;display:grid;gap:14px}.panel{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:22px;min-width:0}.sectionhead{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:14px}.sectionhead h2{font-size:17px;margin:0;letter-spacing:-.04em}.num{color:#668374;font:700 12px ui-monospace,monospace;margin-right:7px}.small{font-size:12px;color:var(--muted)}.types{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.type{text-align:left;padding:11px 12px;min-height:57px;display:flex;flex-direction:column;justify-content:center;line-height:1.45;letter-spacing:-.03em}.type small{font-size:11px;color:var(--muted);font-weight:400}.type[aria-pressed=true]{background:var(--soft);border:1.5px solid var(--accent);padding:10.5px 11.5px;color:var(--accent)}.hint{background:var(--soft);padding:10px 13px;border-radius:10px;margin-top:12px;font-size:13px;color:#355344}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px 12px}.field{display:grid;gap:5px;align-content:start;min-width:0}.field.full{grid-column:1/-1}label,.label{font-size:13px;font-weight:700;letter-spacing:-.015em}.field input,.field select,.field textarea{display:block;width:100%;background:#fafaf7;border:1px solid var(--line);border-radius:9px;padding:10px 11px;min-height:44px;font-size:16px;outline:none}.field textarea{resize:vertical;min-height:86px;line-height:1.5}.field input:focus,.field textarea:focus,.field select:focus{border-color:#51725e}.field input::placeholder,.field textarea::placeholder{color:#929a92;font-size:14px}.modegrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-bottom:14px}.mode{font-size:13px;text-align:center}.mode[aria-pressed=true]{background:var(--accent);color:#fff;border-color:var(--accent)}.checks{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px}.check{border:1px solid var(--line);border-radius:9px;padding:6px 9px;display:flex;gap:6px;align-items:center;font-size:12px;font-weight:600;cursor:pointer}.check input{accent-color:var(--accent);width:16px;height:16px;margin:0}.right{position:sticky;top:14px;min-width:0;display:grid;gap:13px}.sequence{display:grid;gap:0;margin-top:4px}.seq{display:flex;gap:10px;align-items:flex-start;font-size:13px;padding:8px 0;border-bottom:1px solid #eceeea}.seq:last-child{border:0}.seq b{min-width:24px;font:700 11px ui-monospace,monospace;color:#557562;padding-top:4px}.preview{width:100%;height:320px;resize:vertical;min-height:180px;background:#f7f8f5;border:1px solid var(--line);border-radius:10px;padding:14px;line-height:1.65;font-size:14px;font-family:inherit;white-space:pre-wrap}.actions{display:flex;gap:7px;margin-top:12px}.actions .primary{flex:1;padding:13px}.actions button{white-space:nowrap}.fine{font-size:11px;color:var(--muted);margin:9px 0 0;line-height:1.6}.toast{position:fixed;bottom:calc(18px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);background:#20352f;color:white;padding:10px 18px;border-radius:10px;z-index:5;font-size:13px;max-width:90%;text-align:center;box-shadow:0 4px 16px #0002}.hidden{display:none!important}footer{border-top:1px solid var(--line);padding:15px 0 25px;color:var(--muted);font-size:12px}details{margin-top:14px;border-top:1px solid var(--line);padding-top:10px}summary{cursor:pointer;font-weight:650;font-size:13px}details p{margin:7px 0;font-size:12px;color:var(--muted)}.mobilecopy{display:none}@media(max-width:780px){.shell{padding-left:16px;padding-right:16px}.intro{padding-top:25px;align-items:flex-start}.intro .ghost{font-size:12px;flex-shrink:0}.layout{grid-template-columns:1fr;gap:14px;padding-bottom:90px}.right{position:static}.panel{padding:16px}.types{grid-template-columns:repeat(3,minmax(0,1fr))}.type{padding:9px 8px;font-size:14px}.type[aria-pressed=true]{padding:8.5px 7.5px}.local{font-size:10px}.steps{margin-bottom:13px}.step{font-size:12px}.mobilecopy{display:flex;position:fixed;left:0;right:0;bottom:0;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:#f5f4eff5;border-top:1px solid var(--line);gap:8px;z-index:3}.mobilecopy button.primary{flex:1}.toast{bottom:calc(76px + env(safe-area-inset-bottom))}}@media(max-width:360px){.fields{grid-template-columns:1fr}.field.full{grid-column:auto}.type small{font-size:10px}.type{font-size:13px}.local{display:none}}
+</style></head><body>
+<header><div class="shell mast"><div class="logo"><div class="mark" aria-hidden="true">✛</div><div><div class="brand">설교 연구실</div><div class="en">SERMON DESK / 01</div></div></div><div class="local">오프라인 · 입력 자동 저장 안 함</div></div></header>
+<main class="shell"><section class="intro"><div><div class="eyebrow">PERSONAL SERMON WORKFLOW</div><h1>준비는 가볍게, 본문은 깊게.</h1><p>예배 유형을 고르고 필요한 정보만 입력하세요.</p></div><button class="ghost" id="reset">초기화</button></section>
+<div class="steps"><div class="step"><span>01</span> 예배 선택</div><div class="step"><span>02</span> 상황 입력</div><div class="step"><span>03</span> 프롬프트 복사</div></div>
+<div class="layout"><div class="left">
+<section class="panel"><div class="sectionhead"><h2><span class="num">01</span>예배 유형</h2><span class="small">선택 시 항목 자동 변경</span></div><div id="types" class="types"></div><div class="hint" id="typehint"></div></section>
+<section class="panel"><div class="sectionhead"><h2><span class="num">02</span>설교 정보</h2><span class="small">모두 선택 입력</span></div><div id="fields" class="fields"></div><details><summary>개인정보 입력 안내</summary><p>실명 대신 직분이나 이니셜을 사용하세요. 진단명, 가족 갈등 등 민감한 사정은 꼭 필요한 범위에서만 입력하세요. 이 페이지는 서버 전송과 자동 저장을 하지 않지만, 복사한 내용을 ChatGPT에 붙여넣으면 해당 서비스로 전송됩니다.</p></details></section>
+<section class="panel"><div class="sectionhead"><h2><span class="num">03</span>받고 싶은 결과</h2><span class="small">예배별 고정 서식</span></div><div class="modegrid" id="modes"></div><div class="fields"><div class="field"><label for="amount">원고 분량 (공백 포함)</label><select id="amount"><option value="4500자">4,500자</option><option value="7000자">7,000자</option></select></div><div class="field"><label for="structure">설교 구조</label><select id="structure"><option value="two">서론–본론 1–본론 2–결론</option><option value="one">한 가지 중심 메시지</option><option value="text">본문 흐름에 맞게 자유 구성</option><option value="three">서론–본론 3대지–결론</option></select></div><div class="field full"><label for="extra">추가 요청</label><textarea id="extra" placeholder="예: 상투적인 위로는 피하고, 본문에 담긴 역설을 강조"></textarea></div></div><div class="checks" id="extras"></div></section>
+</div><aside class="right"><section class="panel"><div class="sectionhead"><h2>답변 순서</h2><span id="modeLabel" class="small"></span></div><div id="sequence" class="sequence"></div><p class="fine">선택한 예배와 결과 유형에 맞게 순서가 자동으로 조정됩니다.</p></section><section class="panel" id="previewPanel"><div class="sectionhead"><h2>완성된 프롬프트</h2><span id="count" class="small" aria-live="polite"></span></div><textarea id="preview" class="preview" readonly aria-label="생성된 프롬프트"></textarea><div class="actions"><button class="primary" id="copy">프롬프트 복사</button><button id="download">.txt 저장</button></div><p class="fine">복사한 프롬프트를 현재 설교 연구 프로젝트의 대화창에 붙여넣으세요. 이 페이지에서 AI를 호출하지 않습니다.</p></section></aside></div></main>
+<div class="mobilecopy"><button id="jump">미리보기</button><button class="primary" id="mobileCopy">프롬프트 복사</button></div><div id="toast" class="toast hidden" role="status"></div><footer><div class="shell">SERMON DESK · 본문 우선 / 복음 중심 / 목회적 적용 · 프로젝트 자료 기반 연구 요청</div></footer>
+<script>
+'use strict';
+const F=(id,label,placeholder='',opts={})=>({id,label,placeholder,...opts});
+const passage=F('passage','성경 본문','예: 시편 23:1–6 (미정이면 비워두기)',{full:true});
+const theme=F('theme','설교 방향 / 제목','예: 주님이 함께하신다는 확신',{full:true});
+const target=F('target','대상 / 청중','예: 장년 성도, 새가족');
+const context=F('context','상황과 배경','설교 대상의 상황, 예배 맥락 등',{area:true,full:true});
+const focus=F('focus','연구하고 싶은 질문','예: 이 본문이 말하는 참된 평안은 무엇인가?',{area:true,full:true});
+const prayer=F('prayer','기도 제목','필요한 중보기도 내용을 간략히',{area:true,full:true});
+const types={
+visit:{name:'심방예배',sub:'가정 · 대심방 · 병원',hint:'입력한 가정 정보와 기도제목을 먼저 표기하고, 서론–본론 1–본론 2–결론만 이어지는 심방 설교문을 기본 출력합니다.',amount:'4500자',structure:'two',mode:'visitService',extras:[],fields:[F('visitKind','심방 종류','',{options:['일반 가정심방','대심방','병원·환우 심방','새가족 심방','사업장 심방','위기·위로 심방','감사 심방','기타']}),F('person','심방 대상 / 가정 이름','예: 김OO 성도 가정'),F('familyMembers','가족 구성원 / 참석자','예: 김OO 성도(64), 천OO 성도(70), 자녀 2명',{area:true,full:true}),F('visitHymn','찬송가 (새찬송가)','예: 384장 나의 갈 길 다 가도록'),F('prayerLead','기도 담당자','예: 노OO 권사'),passage,theme,F('context','가정의 현재 상황 / 목양 정보','교육, 건강, 재정, 자녀 문제 등 확인된 사실만 작성',{area:true,full:true}),F('prayer','기도제목 (한 줄에 하나씩)','예: 자녀의 진로에 지혜를 주시도록\n가정에 필요한 것을 공급하시도록\n온 가족의 건강과 화목을 지켜주시도록',{area:true,full:true}),F('faith','신앙 배경','',{options:['미확인','신앙이 오래된 성도','새가족·초신자','비신자 가족 동석','신앙 회복이 필요한 성도']}),F('purpose','목회적 목적','',{options:['상황에 따라 판단','위로와 격려','신앙 회복','감사와 축복','믿음의 도전','복음 소개','회복과 돌봄']}),focus,F('tags','분류 태그 (선택)','예: #성경/구약/15.에스라 #유형/설교 #주제/기도',{full:true})],guide:'심방 대상의 상황을 존중하되 개인사를 설교의 소재로 과도하게 소비하지 말라. 건강·재정·자녀 문제의 원하는 결과가 반드시 성취된다고 약속하거나 어려움을 믿음 부족으로 단정하지 말라. 본문이 말하는 하나님의 선하심과 그리스도의 복음에 근거해 기도와 신뢰, 성실한 일상의 순종으로 연결하라.'},
+funeral:{name:'장례예배',sub:'위로 · 입관 · 환송',hint:'장례 집례문은 1~8번 순서와 설교의 서론·본론 1·본론 2·결론을 예시 그대로 고정합니다. 3번 기도와 4번 봉독은 순서만 표시합니다.',amount:'4500자',structure:'two',mode:'service',extras:[],fields:[F('funeralKind','장례예배 종류','',{options:['천국환송예배','위로예배','입관예배','발인예배','하관·안장예배','추모예배']}),F('person','고인 성함 / 직분','예: ○○○ 권사'),F('faith','고인의 신앙 (확인된 범위)','',{options:['미확인','신앙 고백 확인됨','확인된 신앙 고백 없음']}),F('familyFaith','유가족 신앙 배경','',{options:['미확인','신자 중심','신자·비신자 혼재','비신자 중심']}),F('family','유가족 / 주요 참석자','예: 자녀 김OO 집사와 가족들'),F('serviceTitle','집례문 제목 (미입력 시 자동 구성)','예: ○○○ 권사 - 천국환송예배 집례',{full:true}),passage,F('openingBible','묵도 성경구절','예: 시편 23:4 (미입력 시 본문에 맞춰 선정)'),F('choir','조가대 이름','예: 바울대교구 조가대 / 조가가 없으면 없음'),F('hymnOpening','첫 번째 찬송','예: 445장 태산을 넘어 험곡에 가도'),F('hymnClosing','두 번째 찬송','예: 480장 천국에서 만나보자'),F('context','고인과 유가족의 상황','확인된 생애, 관계, 애도 상황만. 추측 금지',{area:true,full:true}),theme,prayer,focus],guide:'선택된 장례 단계의 목적에 맞추고 슬픔을 충분히 인정하라. 고인의 구원 여부를 확인되지 않은 정보로 단정하지 말며, 고인의 생애를 꾸며내지 말라. 유가족에게 신앙을 강요하거나 눈물을 금하지 말고 그리스도의 죽음과 부활에 근거한 소망을 전하라.'},
+dawn:{name:'새벽예배',sub:'묵상 · 하루의 기도',hint:'본문의 핵심 한 가지를 분명하게 전하고 하루의 기도와 순종으로 연결합니다.',amount:'4500자',structure:'two',extras:['hymn','prayerText'],fields:[passage,F('series','설교 흐름 / 연속 본문','예: 창세기 강해 12번째'),target,theme,context,focus],guide:'설교 초반에 본문으로 들어가고, 과도한 배경 설명을 줄여 한 가지 중심 메시지를 선명하게 하라. 기도와 당일의 구체적인 순종으로 자연스럽게 연결하라.'},
+wed:{name:'수요예배',sub:'말씀 · 신앙의 성숙',hint:'본문의 논리와 신학적 의미를 충분히 전개하고 성도의 실제 신앙생활과 연결합니다.',amount:'4500자',structure:'two',extras:['hymn','prayerText'],fields:[passage,F('series','설교 시리즈 / 이전 본문','예: 로마서 강해'),target,theme,context,focus],guide:'본문의 문학적 구조와 문맥을 충실히 설명하고, 관련 신학 쟁점은 필요한 범위에서 검증하라. 배운 말씀이 생활 속 믿음과 순종에 어떻게 연결되는지 보여 주라.'},
+fri:{name:'금요기도회',sub:'기도 · 회복 · 결단',hint:'본문에서 발견한 약속과 복음을 구체적인 기도로 이어갑니다.',amount:'4500자',structure:'two',extras:['hymn','prayerText'],fields:[passage,target,F('purpose','기도회 주제','예: 영적 회복, 중보, 다음세대'),theme,context,prayer,focus],guide:'감정의 고조 자체를 목표로 삼지 말고 본문에서 기도의 근거를 제시하라. 기도 응답의 방식이나 시점을 보장하지 말며 회개, 신뢰, 중보로 연결하라.'},
+sun:{name:'주일예배',sub:'공예배 · 전 회중',hint:'본문의 중심 주장과 회중의 다양한 삶을 연결하는 강해 설교를 준비합니다.',amount:'4500자',structure:'two',extras:['hymn'],fields:[passage,F('series','교회 표어 / 설교 시리즈','예: 나는 제자입니다'),target,theme,context,focus],guide:'신자와 비신자 모두 들을 수 있는 언어로 본문을 설명하라. 청중의 문화적 전제와 삶의 질문을 필요한 만큼 다루고, 복음이 실제 삶을 어떻게 변화시키는지 설득력 있게 보여 주라.'},
+small:{name:'소그룹·훈련',sub:'순장 · 제자훈련',hint:'말씀 설명과 함께 참여자가 스스로 본문을 발견하고 나눌 수 있게 준비합니다.',amount:'4500자',structure:'text',extras:['questions','prayerText'],fields:[passage,F('group','모임 종류','예: 순장교육, 제자훈련'),target,F('goal','훈련 목표','예: 복음에 기초한 순종'),theme,context,focus],guide:'일방적 강의에 그치지 않도록 본문 관찰, 해석, 적용에 도움이 되는 열린 질문을 사용하라. 특정 경험이나 정답을 강요하지 말라.'},
+special:{name:'절기·특별예배',sub:'감사 · 헌신 · 전도',hint:'예배의 목적에 맞춰 본문을 선정하고 행사 주제가 본문을 압도하지 않도록 합니다.',amount:'4500자',structure:'two',extras:['hymn','prayerText'],fields:[F('event','행사·절기','예: 새생명축제, 송별예배'),target,passage,F('purpose','예배 목적','예: 복음 소개, 감사와 파송'),theme,context,focus],guide:'행사 구호를 본문에 억지로 끼워 넣지 말고, 행사 목적과 본문의 중심 메시지를 구분하여 연결하라. 비신자가 있는 경우 익숙하지 않은 교회 용어를 설명하라.'},
+custom:{name:'기타 설교',sub:'직접 설정',hint:'예배 유형, 청중, 목적을 자유롭게 지정합니다.',amount:'4500자',structure:'two',extras:['hymn'],fields:[F('event','예배 / 모임 이름','예: 교역자 경건회'),target,passage,theme,context,focus,prayer],guide:'입력한 예배 유형과 청중에 맞추되, 불명확한 정보는 꾸며내지 말고 일반화하여 작성하라.'}
+};
+const modes={visitService:{name:'심방 설교문 전체',desc:'가정 정보·기도제목·찬송·기도 담당자·본문·4단 구성·태그'},service:{name:'장례 집례문 전체',desc:'고정된 1~8 순서와 설교 원고·기도·축도'},recommend:{name:'본문 추천',desc:'상황에 맞는 본문 3개와 선택 이유'},study:{name:'본문 연구',desc:'본문 해석·복음·인사이트 중심'},outline:{name:'설교 개요',desc:'중심문장·설교 구조·적용'},full:{name:'연구 + 설교문',desc:'본문 연구부터 원고까지 완성'},manuscript:{name:'설교문만',desc:'내부 연구 후 원고만 출력'}};
+const extraDefs={hymn:['찬송가 2곡','찬송가 추천: 예배와 본문에 맞는 새찬송가 2곡을 번호·제목·선정 이유와 함께 제시하라. 번호나 제목은 확인 가능한 경우에만 적고 확인이 필요하면 표시하라.'],order:['예배 순서','예배 순서: 묵도 → 찬송 → 성경봉독 → 설교 → 찬송 → 기도·축도(목회자가 집례하는 경우). 현장 상황과 선택한 예배 단계에 맞게 조정하여 한눈에 보이도록 정리하라.'],prayerText:['마무리 기도문','마무리 기도문: 본문과 실제 기도 제목에 근거하여 현장에서 그대로 읽을 수 있는 짧은 기도문을 작성하라.'],questions:['나눔 질문','나눔 질문: 관찰·해석·적용을 돕는 구체적이고 열린 질문 3개를 제시하라.'],redflags:['신학 검증 요약','신학 검증 요약: 오독, 율법주의, 값싼 은혜, 성급한 약속 등의 위험과 필요한 수정안을 짧게 정리하라.']};
+const structures={two:'서론–본론 1–본론 2–결론(두 본론의 논리적 연결을 분명하게)',one:'한 가지 중심 메시지로 전개(도입–본문과 복음–적용과 마무리)',text:'본문 자체의 논리와 흐름에 적합한 구조',three:'서론–본론 1–본론 2–본론 3–결론'};
+const $=id=>document.getElementById(id);let current='visit',mode='full',data={},extras=new Set(),memory={};let timer;
+function el(tag,cls,text){const a=document.createElement(tag);if(cls)a.className=cls;if(text!==undefined)a.textContent=text;return a;}
+function defaultData(type){let d={};for(const f of type.fields)d[f.id]=f.options?f.options[0]:'';return d;}
+function snapshot(){return {data:{...data},mode,amount:$('amount').value,structure:$('structure').value,extra:$('extra').value,extras:[...extras]};}
+function chooseType(key,save=true){if(save)memory[current]=snapshot();current=key;const t=types[key],saved=memory[key];data=saved?{...saved.data}:defaultData(t);mode=saved?.mode||t.mode||'full';if(current==='funeral'&&['full','manuscript','visitService'].includes(mode))mode='service';if(current==='visit'&&mode==='service')mode='visitService';extras=new Set(saved?.extras||t.extras);$('amount').value=saved?.amount||t.amount;$('structure').value=saved?.structure||t.structure;$('extra').value=saved?.extra||'';render();}
+function render(){const t=types[current];$('typehint').textContent=t.hint;$('types').replaceChildren();for(const [k,v] of Object.entries(types)){const b=el('button','type',v.name);b.type='button';b.setAttribute('aria-pressed',String(k===current));b.append(el('small','',v.sub));b.onclick=()=>{if(k!==current)chooseType(k);};$('types').append(b);} $('fields').replaceChildren();for(const f of t.fields){const w=el('div','field'+(f.full?' full':''));const l=el('label','',f.label);l.htmlFor='f_'+f.id;let input=el(f.options?'select':f.area?'textarea':'input');input.id=l.htmlFor;if(f.options){for(const o of f.options){let op=el('option','',o);op.value=o;input.append(op);}}else input.placeholder=f.placeholder;input.value=data[f.id]||'';input.oninput=()=>{data[f.id]=input.value;update();};w.append(l,input);$('fields').append(w);}renderModes();renderExtras();update();}
+function renderModes(){$('modes').replaceChildren();for(const [k,v] of Object.entries(modes)){if(current==='funeral'&&['full','manuscript','visitService'].includes(k))continue;if(current==='visit'&&k==='service')continue;if(!['funeral','visit'].includes(current)&&['service','visitService'].includes(k))continue;const b=el('button','mode',v.name);b.type='button';b.title=v.desc;b.setAttribute('aria-pressed',String(k===mode));b.onclick=()=>{mode=k;renderModes();renderExtras();update();};$('modes').append(b);}}
+function renderExtras(){$('extras').replaceChildren();if(current==='funeral'&&mode==='service'){const note=el('div','hint','집례문 안에 찬송 2곡·조가 안내·묵도 기도·마무리 기도 및 축도가 포함됩니다. 순서를 추가하거나 분리하지 않습니다.');$('extras').append(note);return;}if(current==='visit'&&mode==='visitService'){const note=el('div','hint','심방 설교문은 예시와 같은 고정 형식으로 출력합니다. 연구 메모, 별도 기도문, 예배 순서, 찬송 추천 목록을 덧붙이지 않습니다.');$('extras').append(note);return;}if(['recommend','study'].includes(mode)){if(mode==='study')addExtra('redflags');return;}for(const k of Object.keys(extraDefs))addExtra(k);}
+function addExtra(k){const l=el('label','check'),i=el('input');i.type='checkbox';i.checked=extras.has(k);i.onchange=()=>{i.checked?extras.add(k):extras.delete(k);update();};l.append(i,document.createTextNode(extraDefs[k][0]));$('extras').append(l);}
+function activeExtras(){if(mode==='recommend')return [];if(mode==='study')return extras.has('redflags')?['redflags']:[];return [...Object.keys(extraDefs)].filter(k=>extras.has(k));}
+function sequence(){if(current==='visit'&&mode==='visitService')return [
+['설교 제목','첫 줄에 # 설교 제목'],
+['기도제목','### 기도제목, 가족·참석자와 번호 매긴 실제 기도제목'],
+['찬송 · 기도 담당','새찬송가 번호·제목, 기도 담당자 표기'],
+['성경 본문','**본문: 성경 책 장절**'],
+['서론','현재 삶의 질문에서 출발하여 본문으로 자연스럽게 연결'],
+['본론 1','본문의 첫 흐름을 정확하게 설명하고 가정에 적용'],
+['본론 2','본문의 다음 흐름과 복음·하나님의 성품을 설교'],
+['결론','약 15%, 기도제목과 연결되는 따뜻한 축복과 응답'],
+['분류 태그','마지막 한 줄에 Obsidian 해시태그']
+];if(current==='funeral'&&mode==='service')return [
+['1. 묵도 · 다같이','예배 시작 안내, 말씀 한 절, 묵도 기도'],
+['2. 찬송 · 다같이','찬송가 번호·제목 및 찬송 안내'],
+['3. 기도 · 기도자','제목만, 기도문 작성하지 않음'],
+['4. 성경봉독 · 집례자','확정된 본문만 표시, 성경 전문은 덧붙이지 않음'],
+['5. 조가 · 조가대','조가대명과 자연스러운 안내 멘트'],
+['6. 설교 · 제목','서론 → 본론 1 → 본론 2 → 결론, 본문 중심 실제 낭독 원고'],
+['7. 찬송 · 다같이','찬송가 번호·제목과 찬송 안내'],
+['8. 기도 및 축도 · 집례자','마무리 기도문과 축도 전문']
+];const a=activeExtras();let s=[];if(mode==='recommend')return [['본문 후보 3개','각 본문의 문맥과 중심 주장, 상황과의 관련성, 적용 주의점'],['우선 추천 본문 1개','선정 이유 및 설교 중심문장 제안']];if(mode==='full'||mode==='study'||mode==='outline'){if(!String(data.passage||'').trim())s.push(['본문 선정','상황과 목적에 맞는 후보 3개를 짧게 비교하고 우선 추천 본문 1개 선정']);s.push(['본문 연구','앞뒤 문맥, 장르, 구조, 반복·대조·전환, 핵심 주장과 긴장'],['핵심 인사이트','본문에 근거한 깊이 있는 관찰 2–3개와 구절 근거'],['그리스도와 복음','정당한 성경 전체의 연결과 은혜의 의미; 연결이 약하면 명시'],['목회적 적용','청중의 상황 및 마음에 닿는 구체적 적용과 피해야 할 오해']);}
+if(mode==='full'||mode==='outline'){s.push(['설교 설계','제목, 중심문장 한 줄, 서론–본론–결론의 개요와 전환']);}
+if(mode==='full'||mode==='manuscript'){if(a.includes('order'))s.push(['예배 순서',extraDefs.order[1]]);s.push(['설교문','제목·본문 표기와 완성된 실제 구어체 원고']);}else if(mode==='outline'&&a.includes('order'))s.push(['예배 순서',extraDefs.order[1]]);
+for(const k of ['hymn','questions','prayerText','redflags'])if(a.includes(k))s.push([extraDefs[k][0],extraDefs[k][1]]);
+if(mode!=='manuscript')s.push(['연구 출처','실제로 확인한 성경 구절 및 프로젝트 자료 위치만 명시; 직접 인용과 추론 구분']);return s;}
+
+function visitPrompt(lines){
+const amount=$('amount').value.replace('4500','4,500').replace('7000','7,000');
+const heading=String(data.theme||'').trim()||'(성경 본문에서 도출한 설교 제목)';
+const bible=String(data.passage||'').trim()||'(기도제목과 상황에 부합하고 문맥상 적절한 본문 1개를 선정하여 장절 표기)';
+const members=String(data.familyMembers||'').trim()||String(data.person||'').trim();
+const rawTopics=String(data.prayer||'').trim();
+const topics=rawTopics?rawTopics.split(/\n+/).map(x=>x.trim().replace(/^(?:[-*•]\s*|\d+[.)]\s*)/, '')).filter(Boolean).map((x,i)=>(i+1)+'. '+x).join('\n'):'(입력된 기도제목이 없으면 지어내지 말고 “별도로 전달된 기도제목 없음”이라고 표기)';
+const hymn=String(data.visitHymn||'').trim()||'(예배 주제에 맞는 새찬송가 1곡의 정확한 번호와 제목 선정)';
+const prayLead=String(data.prayerLead||'').trim();
+const tags=String(data.tags||'').trim();
+lines.push('',
+'## 3. 심방 설교문 출력 규격 — 제공된 예시 형식 고정',
+'최종 출력은 아래의 심방 설교 원고 **하나만** 제공하라. 본문 추천 과정, 본문 연구 메모, 설교 개요, 별도 설교 평가, 추가 찬송 추천, 기도문, 예배 순서, 설명 문구, 참고문헌을 앞뒤로 출력하지 말라. 필요한 본문 연구와 교리 검증은 내부에서 수행하라.',
+'형식은 반드시 **설교 제목 → 기도제목(가족·참석자 명단 + 번호 목록) → 새찬송가 → 기도 담당 → 본문 → 서론 → 본론 1 → 본론 2 → 결론 → 해시태그** 순서로 유지하라. 소제목은 주어진 본문의 실제 흐름에서 짧고 구체적으로 만들고 헤더의 마크다운 수준(#, ###)과 긴 대시(—)를 아래 예시대로 유지하라.',
+'설교 분량은 **서론~결론 본문만 공백 포함 약 '+amount+'**이다. 제목, 가족명단, 기도제목, 찬송, 기도 담당, 성경 주소, 해시태그는 이 분량에서 제외한다. 결론은 전체 설교 분량의 약 15%만 사용하라.',
+'서론은 “우리가 알 수 없는 앞길” 같은 일상의 질문이나 실제 불안에서 시작하여 본문 인물의 처지와 문제로 연결하라. 가족의 실명이나 사적인 사건을 반복 열거하여 감정선을 조작하지 말라. 본론 1은 첫 핵심 구절의 역사적 배경·문장 흐름·의미를 정확히 읽고 현실을 비추라. 본론 2는 뒤이은 구절과 신학적 긴장을 설명하며 성경 전체의 정당한 연결을 통해 그리스도와 복음에 닿게 하라. 모든 본문에 억지로 십자가를 삽입하지 말고 연결 강도를 정직하게 판단하라. 결론은 본문의 마지막 흐름과 기도제목을 묶어 가족에게 전할 실제 축복과 격려로 마치라.',
+'설교는 예시처럼 **“오늘 본문 21절 말씀입니다.”, “그런데 여러분”, “이 말씀을 한번 생각해 보십시오.”**처럼 구어체로 진행하되 해당 표현을 기계적으로 복제하지 말라. 짧은 질문과 명확한 답, 본문 해설과 자연스러운 적용을 교차시키고 설교의 흐름이 매끄럽게 이어지게 하라. 힘주어 말할 구절이나 중심문장은 과하지 않게 **굵게** 표시할 수 있다.',
+'입력된 기도제목을 설교와 결론에 실제로 반영하되 구체적인 진학 합격·사업 성공·치유·부의 증가를 하나님의 확정적 약속으로 단정하지 말라. 에스라 8장 22절의 왕에게 군대를 청하지 않은 일을 보편적 금지 명령으로 만들지 않는 것처럼, 모든 본문을 실제 문맥과 장르에 맞게 해석하라.',
+'성경 직접 인용은 해당 성경 번역의 문구와 장절을 실제로 확인했을 때만 따옴표로 제시하라. 외부 명언과 켈러·칼빈 직접 인용은 확인된 원자료가 없으면 사용하지 말라. 가족의 건강·재정·시험 결과, 영적 상태 등을 추측하여 덧붙이지 말라.',
+'문체는 목회자가 가정에서 바로 읽어도 무리 없는 다정하고 단정한 경어체이다. 한 문장마다 줄바꿈하지 말고, 문단이 바뀌는 지점에서만 줄바꿈하라. 번역투, “단순히 A가 아니라 B”, 기계적인 첫째·둘째·셋째, 과도한 수식어를 피하라. Human Writing은 최종 문장 다듬기에만 활용하라.',
+'기도제목이 한 줄에 여러 개의 문장으로 입력되었다면 의미 단위로 나누되 **새로운 사연은 추가하지 말라**. 인적 정보가 누락되어 있다면 구체적 이름과 나이를 꾸며 넣지 말고 해당 명단 줄만 생략한다. 기도 담당자가 누락되었다면 “기도: 미정”으로 표기한다.',
+'새찬송가 번호·제목이 입력되어 있으면 그대로 우선 반영하되 명백한 오류는 확인하여 고쳐라. 입력되지 않았을 때는 잘 알려진 정확한 찬송가 번호와 제목을 선정하되 확실하지 않은 정보는 만들어 내지 말라.',
+'마지막 해시태그는 사용자가 입력한 태그가 있으면 우선 그대로 쓰고, 없으면 본문의 성경 권과 중심 주제에 근거하여 #성경/... #유형/설교 #주제/... 형식으로 2–5개만 작성한다. 성경 권의 번호를 확신할 수 없으면 번호를 생략한다. 개인 이름·건강 정보는 태그로 만들지 말라.',
+'다음 출력 뼈대에서 괄호 속 문구는 완성 원고에 남길 지시문이 아니라 실제 내용으로 대체할 자리표시자다. 결과에는 뼈대 설명이나 장식용 구분선을 출력하지 말라.',
+'',
+'# '+heading,
+'',
+'### 기도제목',
+...(members?[members,'']:[]),
+topics,
+'',
+'새찬송가 '+hymn,
+'기도: '+(prayLead||'미정'),
+'**본문: '+bible+'**',
+'',
+'# 서론 — (오늘 청중의 현실과 본문으로 들어가는 소제목)',
+'(일상적인 질문 → 본문 맥락 → 본문으로의 초대)',
+'',
+'# 본론 1 — (본문 첫 핵심 흐름의 소제목)',
+'(중심 구절 직접 읽기 → 배경·문맥 해석 → 현실 적용)',
+'',
+'# 본론 2 — (본문 다음 핵심 흐름의 소제목)',
+'(본문 논증 → 하나님이 어떤 분이신가 → 근거 있는 복음 연결 → 믿음의 응답)',
+'',
+'# 결론 — (간결한 목회적 권면의 소제목)',
+'(전체 15% 내외, 기도제목과 연관되는 축복·격려로 종료)',
+'',
+(tags||'#성경/(본문에 따라 확정한 경로) #유형/설교 #주제/(본문에서 도출한 주제)'),
+'',
+'이 출력 형식에 없는 별도 “마무리 기도문”, “설교 연구”, “찬송 추천”, “참고 자료”, “#사역/심방예배” 등 임의 부록을 추가하지 말라.');
+return lines.join('\n');
+}
+
+function funeralPrompt(lines){
+const amount=$('amount').value.replace('4500','4,500').replace('7000','7,000');
+const title=String(data.serviceTitle||'').trim() || ((String(data.person||'').trim()||'고인')+' - '+(data.funeralKind||'장례예배')+' 집례');
+const bible=String(data.passage||'').trim()||'본문 선정 후 성경 주소 표기';
+const choir=String(data.choir||'').trim();
+const choirHeading=choir==='없음'?'조가 · 없음':('조가 · '+(choir||'조가대'));
+lines.push('',
+'## 3. 장례 집례문 출력 규격 — 형식 및 번호 고정',
+'이 작업의 최종 출력은 1~8번 장례예배 집례문 완성본 하나다. 본문 연구, 선택 이유, 해설, 출처 목록, 찬송가 추천표, 준비 메모, 총평, 추가 코멘트를 집례문 전후에 별도로 출력하지 말라. 연구는 내부적으로 수행하라.',
+'예배 순서와 항목 제목을 변경하거나, 통합·분리하거나, 새 번호를 끼워 넣지 말라. 아래의 마크다운 헤더 수준(#, ##, ###), 번호와 담당 표기를 유지하라. 소제목 문구와 본문·찬송·조가대 정보는 입력에 맞게 채우되 없는 사실은 만들어 내지 말라.',
+'설교 원고 분량은 **6번 설교의 본문만 공백 포함 약 '+amount+'**이다. 1~5번, 7~8번 및 제목은 분량에서 제외한다. 설교의 결론은 6번 설교의 약 15%를 배분한다.',
+'서론에서는 유가족의 실제 슬픔에 공감하는 생활 언어로 시작해 본문의 역사적·문학적 맥락으로 연결한다. 본론 1과 본론 2는 본문 구절의 흐름을 따라 정확하게 논증하며, 부활 소망을 그리스도의 죽음과 부활에 근거해 선포한다. 결론은 본문의 명령이나 약속을 가족의 삶으로 조심스럽게 연결한다. 예화, 고인의 미담, 마지막 순간의 상황, 가족의 감정, 신앙 상태를 추측하지 말라.',
+'성경 구절의 인용은 실제 본문과 정확히 대조하고 어구가 확인되지 않으면 임의로 따옴표를 사용하지 말라. 팀 켈러나 다른 인물의 직접 인용은 프로젝트 원자료에서 해당 문장을 확인했을 때만 삽입하라. 확인하지 못한 명언으로 감정선을 인위적으로 높이지 말라.',
+'절박한 현실을 부정하는 상투적인 위로, 확정되지 않은 고인의 구원에 대한 단정, 가족의 눈물을 믿음 부족으로 취급하는 표현을 피하라. 슬픔을 인정하면서 복음의 위로가 서서히 선명해지게 하라.',
+'3번 기도는 다른 기도자가 맡으므로 **제목만 남기고 절대로 기도문을 생성하지 말라.** 4번 봉독 역시 제목에 성경 주소만 쓰고 전문을 새로 붙이지 말라. 5번 조가대가 입력되면 그 이름을 정확히 쓰고, 미입력 시 특정 단체명을 꾸며내지 말라. 조가가 “없음”으로 입력되었다면 5번 제목은 유지하되 조가 발표 멘트는 쓰지 말라.',
+'2번과 7번 찬송에는 각각 새찬송가 번호와 제목을 붙이고 “다 함께 찬송하시겠습니다”처럼 바로 낭독할 짧은 안내문을 작성하라. 사용자가 입력한 찬송은 우선 사용하고, 비어 있으면 본문과 예배의 성격에 맞는 곡을 확인하여 선정하라. 찬송 번호·제목이 불확실하면 사실을 꾸며내지 말라.',
+'8번에는 “기도하겠습니다.”로 시작하는 실제 마무리 기도문과 “이제는 우리 주 예수 그리스도의 은혜와…”로 시작하는 삼위일체적 축도 전문을 **같은 항목 안에서 별도 문단으로** 제시하라. 유가족과 현장 참석자를 위한 구체적인 중보를 포함하되 건강·형통 등을 무조건 약속하지 말라.',
+'실제 집례자가 낭독하는 한국어 구어체로 쓰고, 설교 각 소절 안에서는 문단을 나눌 필요가 있을 때만 줄바꿈하라. 한 문장마다 줄바꿈하거나 모든 문장을 하나의 과도한 장문으로 연결하지 말라. 다음 마크다운 뼈대에 맞추어 제목과 본문을 채운 뒤 완성본만 출력하라.',
+'',
+'# '+title,
+'',
+'## 1. 묵도 · 다같이',
+'예배 시작을 알리는 한두 문장 → '+(String(data.openingBible||'').trim()||'문맥에 맞는 묵도 성경 한 절 선정')+'을 정확히 인용 → 가족과 예배를 위한 묵도 기도.',
+'',
+'## 2. 찬송 · 다같이',
+'찬송가 '+(String(data.hymnOpening||'').trim()||'본문에 맞는 새찬송가 번호와 제목 선정')+'를 다 함께 찬송하시겠습니다.',
+'',
+'## 3. 기도 · 기도자',
+'',
+'## 4. 성경봉독 · 집례자 '+bible,
+'',
+'## 5. '+choirHeading,
+choir==='없음'?'':('이어서 '+(choir||'조가대')+'가 조가를 부르겠습니다.'),
+'',
+'## 6. 설교 · (본문에 근거해 정한 설교 제목)',
+'### 서론 · (내용에 맞는 짧은 소제목)',
+'(사별의 현실에서 출발해 본문 맥락으로 들어가는 실제 설교 원고)',
+'',
+'### 본론 1 · (본문 첫 흐름에서 나온 소제목)',
+'(본문의 구절과 논리를 따라 복음을 전개한 설교 원고)',
+'',
+'### 본론 2 · (본문 다음 흐름에서 나온 소제목)',
+'(본문의 구절과 논리를 따라 소망을 구체화한 설교 원고)',
+'',
+'### 결론 · (본문이 요구하는 위로와 응답을 담은 소제목)',
+'(결론 15%, 실제 유가족과 참석자에게 전할 수 있는 마무리)',
+'',
+'## 7. 찬송 · 다같이',
+'찬송가 '+(String(data.hymnClosing||'').trim()||'본문에 맞는 새찬송가 번호와 제목 선정')+'를 다 함께 찬송하시겠습니다.',
+'',
+'## 8. 기도 및 축도 · 집례자',
+'(마무리 기도문 전문)',
+'',
+'(축도 전문)',
+'',
+'---',
+'#사역/장례예배 #설교/작성중',
+'',
+'주의: 위 괄호 친 문구는 출력에 남기는 자리표시자가 아니라 채워 쓸 부분이다. 기도와 봉독의 3·4번 제목 외에는 빈 내용이 없도록 완성하라. 예배 종류가 위로·입관·발인·안장·추모 중 무엇이든 위 1~8번 번호 배열은 유지하라.');
+return lines.join('\n');
+}
+function prompt(){const t=types[current];const vals=t.fields.map(f=>[f.label,String(data[f.id]||'').trim()]).filter(([l,v])=>v);let lines=['# '+t.name+' · '+modes[mode].name,'','## 1. 입력 정보','- 예배 유형: '+t.name];for(const [label,v] of vals)lines.push('- '+label+': '+v.replace(/\n/g,'\n  '));if(!String(data.passage||'').trim())lines.push('- 성경 본문: 미정. 입력 상황에 맞게 선정하라.');const extra=$('extra').value.trim();if(extra)lines.push('- 추가 요청: '+extra.replace(/\n/g,'\n  '));lines.push('','## 2. 연구 및 작성 원칙','이 프로젝트의 기존 지침을 따르라. 성경 본문과 앞뒤 문맥을 먼저 연구하고, 본문이 말하는 중심 주장과 긴장을 발견하라. 예배 상황은 본문을 선택하고 적용하는 데 사용하되 본문을 상황에 억지로 맞추지 말라.');lines.push('필요한 경우 첨부된 Timothy Keller의 『Preaching』을 설교학·복음 연결·청중 적용에, 복음서 인물과 예수의 만남은 『Encounters With Jesus』를, 실제 교리 쟁점은 Calvin의 『기독교강요』를 확인하라. 모든 자료를 의무적으로 검색하지 말고 저자의 직접 주장과 적용 추론을 구분하라. 출처·페이지·원어·예화·개인 사정은 꾸며내지 말라. 확인되지 않은 정보는 확인되지 않았다고 밝히고 외부 연구는 별도 요청이 없으면 추가하지 말라.');lines.push(t.guide,'강요나 도덕주의를 피하고 은혜에 근거한 믿음과 순종으로 연결하라. 입력하지 않은 사정은 추측하지 말고, 주어진 정보만으로 가능한 범위에서 진행하라.');if(current==='funeral'&&mode==='service')return funeralPrompt(lines);if(current==='visit'&&mode==='visitService')return visitPrompt(lines);if(['full','manuscript','outline'].includes(mode)){const amount=$('amount').value.replace('4500','4,500').replace('7000','7,000');lines.push('원고 구조: '+structures[$('structure').value]+'. 본문 흐름상 필요하면 대지를 조정하되 중심 메시지는 유지하라.');if(mode!=='outline')lines.push('원고 분량: 공백 포함 약 '+amount+'(제목·본문 표시 및 부록 제외), 결론은 전체의 약 15%. 실제 강단에서 자연스럽게 말할 수 있는 한국어로 작성하고 불필요한 줄바꿈을 하지 말라. 마지막에 Human Writing 자료의 표현 원칙을 적용하되 본문 의미와 신학을 변경하지 말라.');}if(mode==='manuscript')lines.push('본문 선정과 해석, 복음 연결 및 신학 검증은 내부에서 수행하되 연구 과정이나 별도 해설은 출력하지 말라. 본문이 미정이라면 하나를 선정하여 제목과 함께 표시하라.');if(mode==='recommend'&&String(data.passage||'').trim())lines.push('이미 입력한 본문이 있다면 우선 후보로 검토하고 비교할 대안 2개를 제시하라.');lines.push('','## 3. 답변 형식','반드시 아래 순서로 출력하라. 요청하지 않은 항목을 추가하지 말라.');sequence().forEach(([title,desc],i)=>lines.push((i+1)+'. '+title+' — '+desc));return lines.join('\n');}
+function update(){const disabled=['recommend','study'].includes(mode);$('amount').disabled=disabled;$('structure').disabled=disabled||(current==='funeral'&&mode==='service')||(current==='visit'&&mode==='visitService');$('modeLabel').textContent=modes[mode].name;$('sequence').replaceChildren();sequence().forEach(([a],i)=>{let r=el('div','seq');r.append(el('b','',String(i+1).padStart(2,'0')),el('span','',a));$('sequence').append(r);});let p=prompt();$('preview').value=p;$('count').textContent=p.length.toLocaleString('ko-KR')+'자';}
+function say(t){$('toast').textContent=t;$('toast').classList.remove('hidden');clearTimeout(timer);timer=setTimeout(()=>$('toast').classList.add('hidden'),3300);}
+async function copy(){let text=$('preview').value;try{if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(text);say('복사했습니다. ChatGPT에 붙여넣으세요.');return;}}catch(e){}let a=$('preview');a.focus();a.select();a.setSelectionRange(0,a.value.length);try{if(document.execCommand('copy')){say('복사했습니다. ChatGPT에 붙여넣으세요.');return;}}catch(e){}a.scrollIntoView({block:'center',behavior:'smooth'});say('자동 복사가 제한되었습니다. 선택된 내용을 직접 복사하세요.');}
+$('copy').onclick=copy;$('mobileCopy').onclick=copy;$('jump').onclick=()=>$('previewPanel').scrollIntoView({behavior:'smooth'});$('download').onclick=()=>{let url=URL.createObjectURL(new Blob([$ ('preview').value],{type:'text/plain;charset=utf-8'})),a=el('a');a.href=url;a.download=types[current].name+'_프롬프트.txt';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);};$('reset').onclick=()=>{if(!confirm('모든 예배 유형에 입력한 정보를 초기화할까요?'))return;memory={};chooseType(current,false);say('초기화했습니다.');};for(const id of ['amount','structure','extra'])$(id).addEventListener('input',update);chooseType('visit',false);
+</script></body></html>
